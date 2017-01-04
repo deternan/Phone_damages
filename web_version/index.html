@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>GeoForce</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/arial.js"></script>
+
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1>門號解約金計算機<br/>
+        <small>Phone damages calculator </small></h1>
+      </div>      
+      <div class="clr"></div>
+      <div class="menu">
+        <ul>
+          <li class="active"><a href="index.html"><span>首頁</span></a></li>
+          <li><a href="support.html"><span>費率選擇</span></a></li>
+          <li><a href="about.html"><span>關於</span></a></li>          
+          <li><a href="contact.html"><span>聯絡作者</span></a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="hbg"></div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+        <h3>說明</h3>
+      <p>讓大家了解自己的手機門號在合約尚未到期時若進行解約所需要繳交的解約金是多少, 開發此一版本讓大家直接查詢</p>
+          <h3>解約金通常由下列三項進行計算</h3>
+          <p>
+          A. 終端設備及/或電信費用補貼款 <br />
+          B. 月租費優惠 (已享月租費優惠)<br />
+          C. 其他補助 (優惠平板購買減價)</p>
+          <h3>計算公式</h3>
+          <p>&nbsp;&nbsp;( 已享月租費優惠+終端設備補貼) * (合約剩餘日數 / 合約總長度日數 )</p>
+          <h3>範例</h3>
+          <p>某使用者於 2015年08月01日申請中華電信4G平板大玩家方案 ( 
+          A=4700元 ; B=6700元 ; C= 1000元 )<br/>
+          合約截止日為2017年7月31日, 共24個月(730天), 若今日(假設為2016年12月31日) <br/>
+          離合約結束時間剩餘為 224天, 其違約金為:</p>
+          <p>[(36*16)+(36*(18/30))+6700+1000] * (224/730)</p>
+          <p>&nbsp;</p>
+          <h2>開始計算</h2>
+          <form>
+          <table style="width:100%">
+          <tr>
+		    <td width="28%">門號起始日期</td>
+		    <td width="72%">Lastname</td> 
+		  </tr>
+          <tr>
+		    <td>門號結束日期</td>
+		    <td>Lastname</td> 
+		  </tr>
+          <tr>
+		    <td>終端設備及/或電信費用補貼款</td>
+		    <td>台幣&nbsp;&nbsp;<input type="text" id="A_value">&nbsp;元</td> 
+		  </tr>
+          <tr>
+		    <td>月租費優惠 (已享月租費優惠)</td>
+		    <td>台幣&nbsp;&nbsp;<input type="text" id="B_value" />&nbsp;元</td> 
+		  </tr>
+          <tr>
+		    <td>其他補助</td>
+		    <td>台幣&nbsp;&nbsp;<input type="text" id="C_value" />&nbsp;元</td> 
+		  </tr>
+          </table>
+          </form>     
+          <p>&nbsp;<input type="submit" value="計算"></p>
+        </div>
+        <div class="article"></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="fbg"></div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">Last updated: January 04, 2017</p>
+      <p class="lf">&copy; Copyright MyWebSite. Designed by Blue <a href="http://www.bluewebtemplates.com/">Website Templates</a></p>
+    </div>
+    <div class="clr"></div>
+  </div>
+</div>
+<div align=center></div>
+</body>
+</html>
