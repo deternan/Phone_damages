@@ -6,7 +6,93 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/arial.js"></script>
-
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(document).ready(function() {
+    $("#datepicker_1").datepicker();
+	$("#datepicker_2").datepicker();
+	$("#datepicker_3").datepicker();
+	var A_value;
+	var B_value;
+	var C_value;
+	var today_end;
+	var total_day;
+	
+	// Submit button
+	$("#submit").click(function(){
+        A_value = document.getElementById('A_value').value;
+		B_value = document.getElementById('B_value').value;
+		C_value = document.getElementById('C_value').value;
+		// Data check
+		var start_date = document.getElementById('datepicker_1').value;
+		var end_date = document.getElementById('datepicker_2').value;		
+		Check_date(start_date, end_date);
+		// Today
+		var dt = new Date();
+		var Today = (dt.getMonth()+1)+"/"+dt.getDate()+"/"+dt.getFullYear();				
+		// Time Gap
+		//var start_today = DateDifference(start_date,Today);
+		today_end = DateDifference(Today,end_date);
+		total_day = DateDifference(start_date,end_date);
+		
+		// damages calculator
+		Calculator();
+    });
+	
+	function Calculator()
+	{
+		//[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543
+		var temp  = ((B_value / 30) * (total_day - today_end)) + parseFloat(A_value) + parseFloat(C_value);
+		var demages = temp * (today_end / total_day);
+		
+		alert(parseInt(demages));
+	}
+	
+	// Data check
+	function Check_date(start_date,end_date)
+	{
+    	// MM/DD/YYYY
+		var dtRegex = new RegExp(/^(0[1-9]|1[012])\/(0[1-9]|[12][0-9]|3[01])\/[0-9]{4}$/);
+    	
+		if(!dtRegex.test(start_date)){
+        	alert("日期格式或範圍不正確")
+        	return false;
+    	}
+		
+		if(!dtRegex.test(end_date)){
+        	alert("日期格式或範圍不正確")
+        	return false;
+    	}
+		
+    	var parts = start_date.split('/');
+    	var sd = new Date(parts[2],parts[0]-1,parts[1]);
+    	parts = end_date.split('/');
+    	var ed = new Date(parts[2],parts[0]-1,parts[1]);
+    	
+		if(sd < ed)return true;
+    	else{
+        	alert("結束日期不得小於開始日期");
+        	return false;
+    	}		
+	}
+	
+	// Day gap
+	function DateDifference(StartDate,EndDate)
+	{
+   		var myStartDate = new Date(StartDate);
+   		var myEndDate = new Date(EndDate);
+   		// 天數，86400000是24*60*60*1000，除以86400000就是有幾天
+     	return (myEndDate - myStartDate)/ 86400000 ;
+	}
+	
+  } );
+  
+  //var str = $('input[id="A_value"]').val();
+  
+  </script>  
 </head>
 <body>
 <div class="main">
@@ -48,34 +134,40 @@
           A=4700元 ; B=6700元 ; C= 1000元 )<br/>
           合約截止日為2017年7月31日, 共24個月(730天), 若今日(假設為2016年12月31日) <br/>
           離合約結束時間剩餘為 224天, 其違約金為:</p>
-          <p>[(36*16)+(36*(18/30))+6700+1000] * (224/730)</p>
+          <p>[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543</p>
           <p>&nbsp;</p>
           <h2>開始計算</h2>
           <form>
           <table style="width:100%">
           <tr>
 		    <td width="28%">門號起始日期</td>
-		    <td width="72%">Lastname</td> 
+		    <td width="72%"><input type="text" id="datepicker_1" value="08/01/2015"></td> 
 		  </tr>
           <tr>
 		    <td>門號結束日期</td>
-		    <td>Lastname</td> 
+		    <td><input type="text" id="datepicker_2" value="07/31/2017"></td> 
+		  </tr>
+          <tr>
+		    <td>解約日期</td>
+		    <td><input type="text" id="datepicker_3"></td> 
 		  </tr>
           <tr>
 		    <td>終端設備及/或電信費用補貼款</td>
-		    <td>台幣&nbsp;&nbsp;<input type="text" id="A_value">&nbsp;元</td> 
+		    <td>台幣&nbsp;&nbsp;<input type="text" id="A_value" value="6700">
+		    &nbsp;元</td> 
 		  </tr>
           <tr>
 		    <td>月租費優惠 (已享月租費優惠)</td>
-		    <td>台幣&nbsp;&nbsp;<input type="text" id="B_value" />&nbsp;元</td> 
+		    <td>台幣&nbsp;&nbsp;<input type="text" id="B_value" value="36">
+		    &nbsp;元 / 月</td> 
 		  </tr>
           <tr>
 		    <td>其他補助</td>
-		    <td>台幣&nbsp;&nbsp;<input type="text" id="C_value" />&nbsp;元</td> 
+		    <td>台幣&nbsp;&nbsp;<input type="text" id="C_value" value="1000">&nbsp;元</td> 
 		  </tr>
           </table>
           </form>     
-          <p>&nbsp;<input type="submit" value="計算"></p>
+          <p>&nbsp;<input type="submit" id="submit" value="計算"></p>
         </div>
         <div class="article"></div>
       </div>
@@ -85,7 +177,7 @@
   <div class="fbg"></div>
   <div class="footer">
     <div class="footer_resize">
-      <p class="lf">Last updated: January 04, 2017</p>
+      <p class="lf">Last updated: January 05, 2017</p>
       <p class="lf">&copy; Copyright MyWebSite. Designed by Blue <a href="http://www.bluewebtemplates.com/">Website Templates</a></p>
     </div>
     <div class="clr"></div>
