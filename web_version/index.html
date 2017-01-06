@@ -15,10 +15,16 @@
     $("#datepicker_1").datepicker();
 	$("#datepicker_2").datepicker();
 	$("#datepicker_3").datepicker();
+	// Today
+	var dt = new Date();
+	var Today = (dt.getMonth()+1)+"/"+dt.getDate()+"/"+dt.getFullYear();				
+	$("#datepicker_3").val(Today);	
+	
 	var A_value;
 	var B_value;
 	var C_value;
 	var today_end;
+	var end_manually;
 	var total_day;
 	
 	// Submit button
@@ -28,13 +34,17 @@
 		C_value = document.getElementById('C_value').value;
 		// Data check
 		var start_date = document.getElementById('datepicker_1').value;
-		var end_date = document.getElementById('datepicker_2').value;		
-		Check_date(start_date, end_date);
+		var end_date = document.getElementById('datepicker_2').value;
+		var manually_date = document.getElementById('datepicker_3').value;
+
+		Check_date(start_date, end_date, manually_date);
+		
 		// Today
-		var dt = new Date();
-		var Today = (dt.getMonth()+1)+"/"+dt.getDate()+"/"+dt.getFullYear();				
+//		var dt = new Date();
+//		var Today = (dt.getMonth()+1)+"/"+dt.getDate()+"/"+dt.getFullYear();				
 		// Time Gap
 		//var start_today = DateDifference(start_date,Today);
+		end_manually = DateDifference(manually_date,end_date);
 		today_end = DateDifference(Today,end_date);
 		total_day = DateDifference(start_date,end_date);
 		
@@ -46,37 +56,52 @@
 	{
 		//[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543
 		var temp  = ((B_value / 30) * (total_day - today_end)) + parseFloat(A_value) + parseFloat(C_value);
-		var demages = temp * (today_end / total_day);
+		var demages = temp * (end_manually / total_day);
 		
 		alert(parseInt(demages));
 	}
 	
 	// Data check
-	function Check_date(start_date,end_date)
+	function Check_date(start_date, end_date, manually_date)
 	{
     	// MM/DD/YYYY
-		var dtRegex = new RegExp(/^(0[1-9]|1[012])\/(0[1-9]|[12][0-9]|3[01])\/[0-9]{4}$/);
+		var dtRegex = new RegExp(/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/[0-9]{4}$/);
     	
 		if(!dtRegex.test(start_date)){
-        	alert("日期格式或範圍不正確")
+        	alert("門號起始日期格式不正確")
         	return false;
     	}
 		
 		if(!dtRegex.test(end_date)){
-        	alert("日期格式或範圍不正確")
+        	alert("門號結束日期格式不正確")
         	return false;
     	}
+		
+		if(!dtRegex.test(manually_date)){
+        	alert("解約日期格式不正確")
+        	return false;
+    	}
+		
 		
     	var parts = start_date.split('/');
     	var sd = new Date(parts[2],parts[0]-1,parts[1]);
     	parts = end_date.split('/');
     	var ed = new Date(parts[2],parts[0]-1,parts[1]);
-    	
-		if(sd < ed)return true;
-    	else{
-        	alert("結束日期不得小於開始日期");
+    	parts = manually_date.split('/');
+		var md = new Date(parts[2],parts[0]-1,parts[1]);
+		
+		if(sd > ed){
+			alert("門號結束日期不得小於開始日期");
         	return false;
-    	}		
+		}else if(md > ed){
+			alert("門號解約日期不得大於合約到期日");
+        	return false;
+		}else if(sd > md){
+			alert("門號起始日期不得大於解約日期");
+        	return false;
+		}else{
+			return true;
+		}		
 	}
 	
 	// Day gap
@@ -84,13 +109,10 @@
 	{
    		var myStartDate = new Date(StartDate);
    		var myEndDate = new Date(EndDate);
-   		// 天數，86400000是24*60*60*1000，除以86400000就是有幾天
+   		
      	return (myEndDate - myStartDate)/ 86400000 ;
-	}
-	
+	}	
   } );
-  
-  //var str = $('input[id="A_value"]').val();
   
   </script>  
 </head>
@@ -124,7 +146,7 @@
       <p>讓大家了解自己的手機門號在合約尚未到期時若進行解約所需要繳交的解約金是多少, 開發此一版本讓大家直接查詢</p>
           <h3>解約金通常由下列三項進行計算</h3>
           <p>
-          A. 終端設備及/或電信費用補貼款 <br />
+          A. 終端設備及電信費用補貼款 <br />
           B. 月租費優惠 (已享月租費優惠)<br />
           C. 其他補助 (優惠平板購買減價)</p>
           <h3>計算公式</h3>
