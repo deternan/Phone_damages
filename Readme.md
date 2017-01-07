@@ -4,7 +4,7 @@
 為了讓大家了解自己的手機門號在合約尚未到期時若進行解約所需要的解約金是多少, 開發此一版本讓大家直接查詢
 
 ## 版本
-開發此網路版本後會再開發 APP
+先開發此網路版本, 日後再開發 APP
 
 ### 違約金計算方式
 
@@ -29,11 +29,18 @@
 ### Reference
 日期相隔天數計算機 : [link](http://daybetween.0123456789.tw)
 
+### History
+
+* January 07, 2017	Prepared different phone company contract
+* January 05, 2017	alpha version released
+* January 03, 2017	Start this repository
+
+
 
 如果各位使用者覺得系統有問題, 請隨時與我聯絡, thanks
 E-mail : phelpske.dev at gmail dot com
 
-Last updated: January 06, 2017 00:39 AM
+Last updated: January 07, 2017 02:22 AM
 
 
 
