@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>台灣大哥大</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/arial.js"></script>
+  
+<style type="text/css">
+<!--
+.style2 {font-size: 10}
+h3 {
+	font-size: 1.75px;
+}
+h4 {
+	font-size: 1.5px;
+}
+h5 {
+	font-size: 1.25px;
+}
+h6 {
+	font-size: 1px;
+}
+-->
+</style>
+<script>
+  $(document).ready(function() {
+    $("#datepicker_1").datepicker();
+	$("#datepicker_2").datepicker();
+	$("#datepicker_3").datepicker();
+	// Today
+	var dt = new Date();
+	var Today = (dt.getMonth()+1)+"/"+dt.getDate()+"/"+dt.getFullYear();				
+	$("#datepicker_3").val(Today);	
+	
+	var A_value;
+	var B_value;
+	var C_value;
+	var today_end;
+	var end_manually;
+	var total_day;
+	
+	// Submit button
+	$("#submit").click(function(){
+        A_value = document.getElementById('A_value').value;
+		B_value = document.getElementById('B_value').value;
+		C_value = document.getElementById('C_value').value;
+		// Data check
+		var start_date = document.getElementById('datepicker_1').value;
+		var end_date = document.getElementById('datepicker_2').value;
+		var manually_date = document.getElementById('datepicker_3').value;
+
+		Check_date(start_date, end_date, manually_date);
+		
+		// Today
+//		var dt = new Date();
+//		var Today = (dt.getMonth()+1)+"/"+dt.getDate()+"/"+dt.getFullYear();				
+		// Time Gap
+		//var start_today = DateDifference(start_date,Today);
+		end_manually = DateDifference(manually_date,end_date);
+		today_end = DateDifference(Today,end_date);
+		total_day = DateDifference(start_date,end_date);
+		
+		// damages calculator
+		Calculator();
+    });
+	
+	function Calculator()
+	{
+		//[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543
+		var temp  = ((B_value / 30) * (total_day - today_end)) + parseFloat(A_value) + parseFloat(C_value);
+		var demages = temp * (end_manually / total_day);
+		
+		alert(parseInt(demages));
+	}
+	
+	// Data check
+	function Check_date(start_date, end_date, manually_date)
+	{
+    	// MM/DD/YYYY
+		var dtRegex = new RegExp(/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/[0-9]{4}$/);
+    	
+		if(!dtRegex.test(start_date)){
+        	alert("門號起始日期格式不正確")
+        	return false;
+    	}
+		
+		if(!dtRegex.test(end_date)){
+        	alert("門號結束日期格式不正確")
+        	return false;
+    	}
+		
+		if(!dtRegex.test(manually_date)){
+        	alert("解約日期格式不正確")
+        	return false;
+    	}
+		
+		
+    	var parts = start_date.split('/');
+    	var sd = new Date(parts[2],parts[0]-1,parts[1]);
+    	parts = end_date.split('/');
+    	var ed = new Date(parts[2],parts[0]-1,parts[1]);
+    	parts = manually_date.split('/');
+		var md = new Date(parts[2],parts[0]-1,parts[1]);
+		
+		if(sd > ed){
+			alert("門號結束日期不得小於開始日期");
+        	return false;
+		}else if(md > ed){
+			alert("門號解約日期不得大於合約到期日");
+        	return false;
+		}else if(sd > md){
+			alert("門號起始日期不得大於解約日期");
+        	return false;
+		}else{
+			return true;
+		}		
+	}
+	
+	// Day gap
+	function DateDifference(StartDate,EndDate)
+	{
+   		var myStartDate = new Date(StartDate);
+   		var myEndDate = new Date(EndDate);
+   		
+     	return (myEndDate - myStartDate)/ 86400000 ;
+	}	
+  } );
+  
+  	// Radio	
+	var radio_sel_val;
+  	$(document).ready(function () {
+		$("input").change(function () {
+    	radio_sel_val = $("input[name='CHT']:checked").val();
+    	//alert(radio_sel_val);
+		
+		// 7266
+		if(radio_sel_val === "7266_1"){
+			
+		}else if(radio_sel_val === "7266_2"){
+			
+		}else if(radio_sel_val === "7266_3"){
+			
+		}else if(radio_sel_val === "7266_4"){
+			
+		}else if(radio_sel_val === "7266_5"){
+			
+		}
+		
+		});
+	});
+  
+  </script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1>門號解約金計算機<br/>
+        <small>Phone damages calculator</small></h1>
+      </div>      
+      <div class="clr"></div>
+      <div class="menu">
+        <ul>
+          <li class="active"><a href="index.html"><span>首頁</span></a></li>
+          <li><a href="CHT.html"><span>中華電信</span></a></li>
+          <li><a href="TWM.html"><span>台灣大哥大</span></a></li> 
+          <li><a href="FET.html"><span>遠傳電信</span></a></li>         
+          <li><a href="contact.html"><span>聯絡作者</span></a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="hbg"></div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <h2>台灣大哥大</h2>
+          <p>&nbsp;</p>          
+          <table class="table">
+          <form>
+          	<tr>
+              <td colspan="7" class="table-danger">
+              <div align="center" class="table-danger">4G上網綁約優惠 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.taiwanmobile.com/mobile/postpaid/4g_rateplan/index_1.htm" target="_blank">link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G%E9%A3%86%E9%80%9F24M%E5%B0%88%E6%A1%88.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a>              </div><div align="center" class="table-danger"></div><div align="center"></div><div align="center"></div><div align="center"></div><div align="center"></div><div align="center"></div></td>
+            </tr>
+            <tr>
+              <td width="6%" align="center" valign="middle"><div align="center"></div></td>              
+              <td width="9%" align="center" valign="middle"><div align="center"><strong><span class="style2">合約長度</span></strong></div></td>
+              <td width="8%" align="center" valign="middle"><div align="center"><strong><span class="style2">月租費</span></strong></div></td>
+              <td width="21%" align="center" valign="middle" nowrap="nowrap"><div align="center"><strong><span class="style2">終端設備及電信費用補貼款</span></strong></div></td>
+              <td width="11%" align="center" valign="middle"><div align="center"><strong><span class="style2">月租費優惠</span></strong><strong><span class="style2"> </span>/ 月</strong></div></td>
+            </tr>                     
+            <tr>
+              <!--<td><div align="center"><input type="radio" name="CHT" value="7266_1"><br></div></td>-->
+              <td><div align="center"><br></div>
+              <td><div align="center">24 個月</div></td>
+              <td><div align="center">399</div></td>
+              <td><div align="center">5000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <!--<td><div align="center"><input type="radio" name="CHT" value="7266_2"></div></td>-->
+              <td><div align="center"><br></div>
+              <td><div align="center">24 個月</div></td>
+              <td><div align="center">599</div></td>
+              <td><div align="center">7000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td><div align="center"><br></div>
+              <td><div align="center">24 個月</div></td>
+              <td><div align="center">799</div></td>
+              <td><div align="center">9500</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td><div align="center"><br></div>
+              <td><div align="center">24 個月</div></td>
+              <td><div align="center">999</div></td>
+              <td><div align="center">11000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td><div align="center"><br></div>
+              <td><div align="center">24 個月</div></td>
+              <td><div align="center">1199</div></td>
+              <td><div align="center">12500</div></td>
+              <td><div align="center">0</div></td>
+            </tr>            
+            <tr>              
+              <td><div align="center"><br></div>
+              <td><div align="center">24 個月</div></td>
+              <td><div align="center">1399</div></td>
+              <td><div align="center">15500</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td><div align="center"><br></div>
+              <td><div align="center">24 個月</div></td>
+              <td><div align="center">1599</div></td>
+              <td><div align="center">17000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td><div align="center"><br></div>
+              <td><div align="center">24 個月</div></td>
+              <td><div align="center">1899</div></td>
+              <td><div align="center">20000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td><div align="center"><br></div>
+              <td><div align="center">24 個月</div></td>
+              <td><div align="center">2699</div></td>
+              <td><div align="center">24900</div></td>
+              <td><div align="center">0</div></td>
+            </tr>           
+            <tr>
+              <td colspan="7" class="table-danger">
+              <div align="center" class="table-danger">4G上網綁約優惠&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.taiwanmobile.com/mobile/postpaid/4g_rateplan/index_1.htm" target="_blank">link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G%E9%A3%86%E9%80%9F30M%E5%B0%88%E6%A1%88.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a>              </div>
+              <div align="center" class="table-danger"></div><div align="center"></div><div align="center"></div><div align="center"></div><div align="center"></div><div align="center"></div></td>
+            </tr>
+            <tr>
+              <td width="6%" align="center" valign="middle"><div align="center"></div></td>              
+              <td width="9%" align="center" valign="middle"><div align="center"><strong><span class="style2">合約長度</span></strong></div></td>
+              <td width="8%" align="center" valign="middle"><div align="center"><strong><span class="style2">月租費</span></strong></div></td>
+              <td width="21%" align="center" valign="middle" nowrap="nowrap"><div align="center"><strong><span class="style2">終端設備及電信費用補貼款</span></strong></div></td>
+              <td width="11%" align="center" valign="middle"><div align="center"><strong><span class="style2">月租費優惠 </span>/ 月</strong></div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">30 個月</div></td>
+              <td><div align="center">399</div></td>
+              <td><div align="center">6000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">30 個月</div></td>
+              <td><div align="center">599</div></td>
+              <td><div align="center">8000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">30 個月</div></td>
+              <td><div align="center">799</div></td>
+              <td><div align="center">10500</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">30 個月</div></td>
+              <td><div align="center">999</div></td>
+              <td><div align="center">12000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">30 個月</div></td>
+              <td><div align="center">1199</div></td>
+              <td><div align="center">15500</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">30 個月</div></td>
+              <td><div align="center">1399</div></td>
+              <td><div align="center">18500</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">30 個月</div></td>
+              <td><div align="center">1599</div></td>
+              <td><div align="center">20000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">30 個月</div></td>
+              <td><div align="center">1899</div></td>
+              <td><div align="center">23000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">30 個月</div></td>
+              <td><div align="center">2699</div></td>
+              <td><div align="center">24900</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td colspan="7" class="table-danger">
+              <div align="center" class="table-danger">4G平板上網資費&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.taiwanmobile.com/mobile/postpaid/4g_rateplan/index_3.html" target="_blank">link</a></div>
+              <div align="center" class="table-danger"></div><div align="center"></div><div align="center"></div><div align="center"></div><div align="center"></div><div align="center"></div></td>
+            </tr>
+            <tr>
+              <td width="6%" align="center" valign="middle"><div align="center"></div></td>              
+              <td width="9%" align="center" valign="middle"><div align="center"><strong><span class="style2">合約長度</span></strong></div></td>
+              <td width="8%" align="center" valign="middle"><div align="center"><strong><span class="style2">月租費</span></strong></div></td>
+              <td width="21%" align="center" valign="middle" nowrap="nowrap"><div align="center"><strong><span class="style2">終端設備及電信費用補貼款</span></strong></div></td>
+              <td width="11%" align="center" valign="middle"><div align="center"><strong><span class="style2">月租費優惠</span></strong><strong><span class="style2"> </span>/ 月</strong></div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">24 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B2299_24_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">299</div></td>
+              <td><div align="center">4500</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">24 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B2499_24_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">499</div></td>
+              <td><div align="center">6000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">24 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B2699_24_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">699</div></td>
+              <td><div align="center">7000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">24 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B2899_24_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">899</div></td>
+              <td><div align="center">10000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">24 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B21199_24_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">1199</div></td>
+              <td><div align="center">11000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">24 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B21499_24_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">1499</div></td>
+              <td><div align="center">14000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td colspan="7" class="table-danger">
+              <div align="center" class="table-danger">4G平板上網資費&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              
+              <a href="https://github.com/deternan/Phone-damages/blob/master/Contract/CHT/%E5%A4%A74G%E6%96%B0%E5%84%AA%E6%83%A0%E6%96%B9%E6%A1%88%E5%90%8C%E6%84%8F%E6%9B%B8(30%E5%80%8B%E6%9C%88).pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a>              </div>
+              <div align="center" class="table-danger"></div><div align="center"></div><div align="center"></div><div align="center"></div><div align="center"></div><div align="center"></div></td>
+            </tr>
+            <tr>
+              <td width="6%" align="center" valign="middle"><div align="center"></div></td>              
+              <td width="9%" align="center" valign="middle"><div align="center"><strong><span class="style2">合約長度</span></strong></div></td>
+              <td width="8%" align="center" valign="middle"><div align="center"><strong><span class="style2">月租費</span></strong></div></td>
+              <td width="21%" align="center" valign="middle" nowrap="nowrap"><div align="center"><strong><span class="style2">終端設備及電信費用補貼款</span></strong></div></td>
+              <td width="11%" align="center" valign="middle"><div align="center"><strong><span class="style2">月租費優惠</span></strong><strong><span class="style2"> </span>/ 月</strong></div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">36 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B2299_36_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">299</div></td>
+              <td><div align="center">5500</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">36 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B2499_36_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">499</div></td>
+              <td><div align="center">7000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">36 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B2699_36_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">699</div></td>
+              <td><div align="center">9000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">36 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B2899_36_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">899</div></td>
+              <td><div align="center">13000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>
+            <tr>
+              <td> <div align="center"></div></td>
+              <td><div align="center">36 個月&nbsp;&nbsp;<a href="https://github.com/deternan/Phone-damages/blob/master/Contract/TWM/4G_%E8%A1%8C%E5%8B%95%E4%B8%8A%E7%B6%B21199_36_%E5%B9%B3%E6%9D%BF.pdf" target="_blank"><img src="images/pdf.png" width="16" height="16" valign="top"/></a></div></td>
+              <td><div align="center">1199</div></td>
+              <td><div align="center">14000</div></td>
+              <td><div align="center">0</div></td>
+            </tr>                                
+            </form>
+          </table>
+          <p>&nbsp;</p>
+          <!--<form>
+          <table style="width:100%">
+          <tr>
+		    <td width="28%">門號起始日期</td>
+		    <td width="72%"><input type="text" id="datepicker_1" value="08/01/2015"></td> 
+		  </tr>
+          <tr>
+		    <td>門號結束日期</td>
+		    <td><input type="text" id="datepicker_2" value="07/31/2017"></td> 
+		  </tr>
+          <tr>
+		    <td>解約日期</td>
+		    <td><input type="text" id="datepicker_3"></td> 
+		  </tr>
+          <tr>
+		    <td>終端設備及/或電信費用補貼款</td>
+		    <td>台幣&nbsp;&nbsp;<input type="text" id="A_value" value="6700">
+		    &nbsp;元</td> 
+		  </tr>
+          <tr>
+		    <td>月租費優惠 (已享月租費優惠)</td>
+		    <td>台幣&nbsp;&nbsp;<input type="text" id="B_value" value="36">
+		    &nbsp;元 / 月</td> 
+		  </tr>
+          <tr>
+		    <td>其他補助</td>
+		    <td>台幣&nbsp;&nbsp;<input type="text" id="C_value" value="1000">&nbsp;元</td> 
+		  </tr>
+          </table>
+          </form>
+          <p>&nbsp;<input type="submit" id="submit" value="計算"></p>-->
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="fbg"></div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright MyWebSite. Designed by Blue <a href="http://www.bluewebtemplates.com/">Website Templates</a></p>      
+    </div>
+    <div class="clr"></div>
+  </div>
+</div>
+<div align=center></div>
+</body>
+</html>
