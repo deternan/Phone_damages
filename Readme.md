@@ -9,7 +9,7 @@
 ### 違約金計算方式
 
 已中華電信 智慧大玩家 <a href="http://www.emome.net/channel?chid=829&pid=6">平板699方案</a>來看
-其合約如此份 <a href="http://www.ored.com.tw/AUTHAdmin_SJW/file_upload/%E3%80%90%E6%96%B0%E7%94%B3%E8%A3%9D+NP%E3%80%914G%E5%B9%B3%E6%9D%BF%E5%A4%A7%E7%8E%A9%E5%AE%B6%E6%96%B9%E6%A1%88%E5%90%8C%E6%84%8F%E6%9B%B8(24%E5%80%8B%E6%9C%88)1041103.pdf"> PDF </a> 檔 
+其合約如此份 <a href="https://github.com/deternan/Phone-damages/blob/master/Contract/CHT/4G%E5%B9%B3%E6%9D%BF%E5%A4%A7%E7%8E%A9%E5%AE%B6%E6%96%B9%E6%A1%88%E5%90%8C%E6%84%8F%E6%9B%B8(24%E5%80%8B%E6%9C%88).pdf"> PDF </a> 檔 
 
 * 終端設備及/或電信費用補貼款 (終端設備補貼) 	NT 6700
 * 月租費優惠 (已享月租費優惠)					NT 36/month
@@ -38,6 +38,7 @@
 ### 版權
 若各家的門號申請文件屬於機密資訊不允許被公告, 煩請告知, 將立即撤下
 
+### Comments
 如果各位使用者覺得系統有問題, 請隨時與我聯絡, thanks
 E-mail : phelpske.dev at gmail dot com
 
