@@ -1,7 +1,7 @@
 
 #簡介
 
-為了讓大家了解自己的手機門號在合約尚未到期時若進行解約所需要的解約金是多少, 開發此一版本讓大家直接查詢
+讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少, 開發此一版本讓大家直接查詢
 
 ## 版本
 先開發此網路版本, 日後再開發 APP
@@ -35,12 +35,13 @@
 * January 05, 2017	alpha version released
 * January 03, 2017	Start this repository
 
-
+### 版權
+若各家的門號申請文件屬於機密資訊不允許被公告, 煩請告知, 將立即撤下
 
 如果各位使用者覺得系統有問題, 請隨時與我聯絡, thanks
 E-mail : phelpske.dev at gmail dot com
 
-Last updated: January 07, 2017 02:22 AM
+Last updated: January 09, 2017 00:47 AM
 
 
 
