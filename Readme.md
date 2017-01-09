@@ -9,7 +9,7 @@
 ### 違約金計算方式
 
 已中華電信 智慧大玩家 <a href="http://www.emome.net/channel?chid=829&pid=6">平板699方案</a>來看
-其合約如此份 <a href="https://github.com/deternan/Phone-damages/blob/master/Contract/CHT/4G%E5%B9%B3%E6%9D%BF%E5%A4%A7%E7%8E%A9%E5%AE%B6%E6%96%B9%E6%A1%88%E5%90%8C%E6%84%8F%E6%9B%B8(24%E5%80%8B%E6%9C%88).pdf"> PDF </a> 檔 
+其合約如此份 <a href="https://drive.google.com/file/d/0B9po2jdlaNnNOVNIa1ZsX1kwMHM/view?usp=sharing"> PDF </a> 檔 
 
 * 終端設備及/或電信費用補貼款 (終端設備補貼) 	NT 6700
 * 月租費優惠 (已享月租費優惠)					NT 36/month
@@ -31,6 +31,7 @@
 
 ### History
 
+* January 09, 2017	1st version released
 * January 07, 2017	Prepared different phone company contract
 * January 05, 2017	alpha version released
 * January 03, 2017	Start this repository
@@ -42,7 +43,7 @@
 如果各位使用者覺得系統有問題, 請隨時與我聯絡, thanks
 E-mail : phelpske.dev at gmail dot com
 
-Last updated: January 09, 2017 00:47 AM
+Last updated: January 10, 2017 00:34 AM
 
 
 
