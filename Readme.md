@@ -31,6 +31,7 @@
 
 ### History
 
+* January 10, 2017	Add contract length (intuition selection) function
 * January 09, 2017	1st version released
 * January 07, 2017	Prepared different phone company contract
 * January 05, 2017	alpha version released
@@ -43,7 +44,7 @@
 如果各位使用者覺得系統有問題, 請隨時與我聯絡, thanks
 E-mail : phelpske.dev at gmail dot com
 
-Last updated: January 10, 2017 00:34 AM
+Last updated: January 11, 2017 01:06 AM
 
 
 
