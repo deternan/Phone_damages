@@ -40,6 +40,39 @@
 	var today_end;
 	var end_manually;
 	var total_day;
+	var contract_month;
+	var contract_date;
+	
+	// Contract date selection
+	//contract_month = $('#Contract_month').val();
+	//contract_date = contract_month * 30;
+	contract_date = $('#Contract_month').val();
+	//alert(contract_month * 30);
+	$('#Contract_month').change(function () {    	
+		//contract_date = this.value * 30;		
+		contract_date = this.value;
+		
+		var temp_date = document.getElementById('datepicker_1').value;
+		var d_parts = temp_date.split('/');
+    	var new_date = new Date(d_parts[2],d_parts[0]-1,d_parts[1]);	
+		new_date.setDate(new_date.getDate()+ parseInt(contract_date));		
+		var new_datepicker = (new_date.getMonth()+1).toString()+"/"+new_date.getDate().toString()+"/"+new_date.getFullYear().toString();
+		$('#datepicker_2').datepicker('setDate', new_datepicker.toString());		
+ 	});
+
+	// Start date changed
+	$('#datepicker_1').datepicker().change(function () { 
+    	//alert(document.getElementById('datepicker_1').value);
+		contract_date = $('#Contract_month').val();
+		var temp_date_2 = document.getElementById('datepicker_1').value;
+		var d_parts_2 = temp_date_2.split('/');
+    	var new_date_2 = new Date(d_parts_2[2],d_parts_2[0]-1,d_parts_2[1]);	
+		new_date_2.setDate(new_date_2.getDate()+ parseInt(contract_date));		
+		var new_datepicker_2 = (new_date_2.getMonth()+1).toString()+"/"+new_date_2.getDate().toString()+"/"+new_date_2.getFullYear().toString();
+		$('#datepicker_2').datepicker('setDate', new_datepicker_2.toString());
+	});
+
+	
 	
 	// Submit button
 	$("#submit").click(function(){
@@ -220,10 +253,17 @@
               </tr>
               <tr>
                 <td>門號結束日期</td>
-                <td><input type="text" id="datepicker_2" value="07/31/2017"></td>
+                <td><input type="text" id="datepicker_2" value="07/31/2017">&nbsp;
+                <select id="Contract_month">
+				    <option name="12M" value="365">12 個月</option>
+				    <option name="24M" value="730" selected="selected">24 個月</option>
+                    <option name="30M" value="912">30 個月</option>
+                    <option name="36M" value="1095">36 個月</option>
+				</select>
+                </td>
               </tr>
               <tr>
-                <td>解約日期</td>
+                <td>欲解約日期</td>
                 <td><input type="text" id="datepicker_3"></td>
               </tr>
               <tr>
