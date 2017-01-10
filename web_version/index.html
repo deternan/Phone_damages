@@ -6,11 +6,10 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/arial.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
   
   // Google Analytics
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -133,16 +132,24 @@
 	}	
   } );
   
-  </script>  
-  <style type="text/css">
+  </script>
+<style type="text/css">
 <!--
-.style1 {font-size: 24px}
+.style1 {
+	font-size: 24px
+}
 .style2 {
 	color: #FF0000;
 	font-size: xx-large;
 }
 -->
-  </style>
+</style>
+<!-- Facebook Tag -->
+<meta property="og:url"           content="http://52.199.217.21/" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="門號解約金計算機" />
+<meta property="og:description"   content="讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少,藉由此計算機來幫助計算" />
+<meta property="og:image"         content="http://52.199.217.21/images/calculator.png" />
 </head>
 <body>
 <div class="main">
@@ -150,17 +157,17 @@
     <div class="header_resize">
       <div class="logo">
         <h1>門號解約金計算機<br/>
-        <small>Phone damages calculator </small></h1>
-      </div>      
+          <small>Phone damages calculator </small></h1>
+      </div>
       <div class="clr"></div>
       <div class="menu">
         <ul>
           <li class="active"><a href="index.html"><span>首頁</span></a></li>
-          <li><a href="CHT.html"><span>中華電信</span></a></li>          
+          <li><a href="CHT.html"><span>中華電信</span></a></li>
           <li><a href="TWM.html"><span>台灣大哥大</span></a></li>
-          <li><a href="FET.html"><span>遠傳電信</span></a></li>         
-          <li><a href="GT.html"><span>亞太電信</span></a></li>         
-          <li><a href="Tstart.html"><span>台灣之星</span></a></li>         
+          <li><a href="FET.html"><span>遠傳電信</span></a></li>
+          <li><a href="GT.html"><span>亞太電信</span></a></li>
+          <li><a href="Tstart.html"><span>台灣之星</span></a></li>
           <li><a href="contact.html"><span>聯絡作者</span></a></li>
         </ul>
       </div>
@@ -173,57 +180,80 @@
     <div class="content_resize">
       <div class="mainbar">
         <div class="article">
-        <h2>說明</h2>
-      <p>讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少, 可藉由此計算機來幫助計算</p>
+          <table width="100%" border="0">
+            <tr>
+              <td width="80%"><h2>說明</h2></td>
+              <td width="20%" style="float:right;">
+              <div id="fb-root"></div>
+				<script>(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>  
+                
+                <div class="fb-share-button" data-href="http://52.199.217.21/" data-layout="button" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F52.199.217.21%2F&amp;src=sdkpreparse">Share</a></div>
+              </td>
+            </tr>
+          </table>
+          <p>讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少, 可藉由此計算機來幫助計算</p>
           <h3>手機門號解約金通常由下列三項進行計算</h3>
-          <p>
-          A. 終端設備及電信費用補貼款 <br />
-          B. 月租費優惠 (已享月租費優惠)<br />
-          C. 其他補助 (優惠平板購買減價)</p>
+          <p> A. 終端設備及電信費用補貼款 <br />
+            B. 月租費優惠 (已享月租費優惠)<br />
+            C. 其他補助 (優惠平板購買減價)</p>
           <h3>計算公式</h3>
           <p>&nbsp;&nbsp;( 已享月租費優惠+終端設備補貼) * (合約剩餘日數 / 合約總長度日數 )</p>
           <h3>範例</h3>
           <p>某使用者於 2015年08月01日申請中華電信4G平板大玩家方案 ( 
-          A=4700元 ; B=6700元 ; C= 1000元 )<br/>
-          合約截止日為2017年7月31日, 共24個月(730天), 若今日(假設為2016年12月31日) <br/>
-          離合約結束時間剩餘為 224天, 其違約金為:</p>
+            A=4700元 ; B=6700元 ; C= 1000元 )<br/>
+            合約截止日為2017年7月31日, 共24個月(730天), 若今日(假設為2016年12月31日) <br/>
+            離合約結束時間剩餘為 224天, 其違約金為:</p>
           <p>[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543</p>
           <p>&nbsp;</p>
           <h2>開始計算</h2>
           <form>
-          <table style="width:100%">
-          <tr>
-		    <td width="28%">門號起始日期</td>
-		    <td width="72%"><input type="text" id="datepicker_1" value="08/01/2015"></td> 
-		  </tr>
-          <tr>
-		    <td>門號結束日期</td>
-		    <td><input type="text" id="datepicker_2" value="07/31/2017"></td> 
-		  </tr>
-          <tr>
-		    <td>解約日期</td>
-		    <td><input type="text" id="datepicker_3"></td> 
-		  </tr>
-          <tr>
-		    <td>終端設備及/或電信費用補貼款</td>
-		    <td>台幣&nbsp;&nbsp;<input type="text" id="A_value" value="6700">
-		    &nbsp;元</td> 
-		  </tr>
-          <tr>
-		    <td>月租費優惠 (已享月租費優惠)</td>
-		    <td>台幣&nbsp;&nbsp;<input type="text" id="B_value" value="36">
-		    &nbsp;元 / 月</td> 
-		  </tr>
-          <tr>
-		    <td>其他補助</td>
-		    <td>台幣&nbsp;&nbsp;<input type="text" id="C_value" value="1000">&nbsp;元</td> 
-		  </tr>
-          </table>
-          </form>     
-          <p>&nbsp;<input type="submit" id="submit" value="計算"></p>
-          <p class="style1" id='damages_text'>違約金為 <label class="style2" id='damages_val'>$</label> <span class="style1" id='damages_text'>元</span></p>
+            <table style="width:100%">
+              <tr>
+                <td width="28%">門號起始日期</td>
+                <td width="72%"><input type="text" id="datepicker_1" value="08/01/2015"></td>
+              </tr>
+              <tr>
+                <td>門號結束日期</td>
+                <td><input type="text" id="datepicker_2" value="07/31/2017"></td>
+              </tr>
+              <tr>
+                <td>解約日期</td>
+                <td><input type="text" id="datepicker_3"></td>
+              </tr>
+              <tr>
+                <td>終端設備及/或電信費用補貼款</td>
+                <td>台幣&nbsp;&nbsp;
+                  <input type="text" id="A_value" value="6700">
+                  &nbsp;元</td>
+              </tr>
+              <tr>
+                <td>月租費優惠 (已享月租費優惠)</td>
+                <td>台幣&nbsp;&nbsp;
+                  <input type="text" id="B_value" value="36">
+                  &nbsp;元 / 月</td>
+              </tr>
+              <tr>
+                <td>其他補助</td>
+                <td>台幣&nbsp;&nbsp;
+                  <input type="text" id="C_value" value="1000">
+                  &nbsp;元</td>
+              </tr>
+            </table>
+          </form>
+          <p>&nbsp;
+            <input type="submit" id="submit" value="計算">
+          </p>
+          <p class="style1" id='damages_text'>違約金為
+            <label class="style2" id='damages_val'>$</label>
+            <span class="style1" id='damages_text'>元</span></p>
           <h2>門號合約查詢</h2>
-        若不知道自己的門號合約相關資訊, 可以從上方各門號頁面直接進入進行查詢        </div>
+          若不知道自己的門號合約相關資訊, 可以從上方各門號頁面直接進入進行查詢 </div>
         <div class="article"></div>
       </div>
       <div class="clr"></div>
@@ -232,7 +262,7 @@
   <div class="fbg"></div>
   <div class="footer">
     <div class="footer_resize">
-      <p class="lf">Last updated: January 09, 2017</p>
+      <p class="lf">Last updated: January 10, 2017</p>
       <p class="lf">&copy; Copyright MyWebSite. Designed by Blue <a href="http://www.bluewebtemplates.com/">Website Templates</a></p>
     </div>
     <div class="clr"></div>

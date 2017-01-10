@@ -40,7 +40,19 @@ p { margin:8px 0; padding:0 0 8px 0; font:normal 12px/1.8em Arial, Helvetica, sa
 a { color:#61a203; text-decoration:none;}
 
 .header, .hbg, .content, .fbg, .footer { margin:0; padding:0;}
-.hbg_resize, .content_resize, .fbg_resize { margin:0 auto; padding:24px 40px; width:900px; background-color:#fff; -moz-border-radius:10px;}
+.hbg_resize, .content_resize, .fbg_resize {
+	width:800px;
+	background-color:#fff;
+	-moz-border-radius:10px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding-top: 24px;
+	padding-right: 40px;
+	padding-bottom: 24px;
+	padding-left: 40px;
+}
 
 /* header */
 .header { background:url(images/header_bg.gif) repeat-x top;}
