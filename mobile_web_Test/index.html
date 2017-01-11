@@ -14,8 +14,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="keywords" content="Multi Column Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<script src="js/jquery.min.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	<script src="js/skycons.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+	<script>
+	
+	$(document).ready(function() {
+	
+	$("#datepicker_1").datepicker();
+	$("#datepicker_2").datepicker();
+	
+	
+	});
+	
+    </script>
 </head>
 <body>
 <h1>門號解約金計算機</h1>
@@ -27,12 +41,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="sign-in-bottom-agileinfo">
 			<form action="#" method="post">
-				<h3>Email Address</h3>
-				<input type="text" name="email" required=" ">
-				<h3>Password</h3>
-				<input type="password" name="password" required=" ">
-				<input type="submit" value="Sign In"/>
-				<p>Forgot Password? </p><a href="#">Click Here</a>
+				<h3>門號起始日期</h3>
+		    	<input type="text" id="datepicker_1" value="08/01/2015">
+				<h3>門號結束日期</h3>
+				<input type="text" id="datepicker_2" value="07/31/2017">
+				<p>&nbsp;</p>
 			</form>
 		</div>
 	</div>
@@ -57,15 +70,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 	<div class="weather-agile">
 		<div class="weather-top-agileits-w3layouts">
-			<div class="weather-w3ls">
-				<img src="images/forecast.png" alt=" " />
-				<h5>Cloudy</h5>
-			</div>
-			<div class="weather-agileinfo">
-				<h4> 22°C</h4>
-				<h5>Houston</h5>
-			</div>
-			<div class="clear"></div>	
+		  <div class="clear"></div>	
 		</div>
 		<div class="weather-bottom-w3-agile">
 			<select class="dropdown">
