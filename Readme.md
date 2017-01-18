@@ -31,6 +31,7 @@
 
 ### History
 
+* January 19, 2017	Add mobile version (Responsive Web Design), Alpha version
 * January 10, 2017	Add contract length (intuition selection) function
 * January 09, 2017	1st version released
 * January 07, 2017	Prepared different phone company contract
@@ -44,7 +45,7 @@
 如果各位使用者覺得系統有問題, 請隨時與我聯絡, thanks
 E-mail : phelpske.dev at gmail dot com
 
-Last updated: January 11, 2017 01:06 AM
+Last updated: January 19, 2017 01:40 AM
 
 
 
