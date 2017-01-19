@@ -1,6 +1,7 @@
 <!--
 Author: Chao-Hsuan Ke
-Last update: January 18, 2017 09:56 PM
+Mail: phelpske.dev at gmail dot com
+Last update: January 20, 2017 00:29 AM
 Web
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
@@ -8,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Phone damages calculator (Mobile)</title>
+	<title>Phone penalty calculator (Mobile)</title>
 	<link href="css/style.css" rel='stylesheet' type='text/css'/>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -62,7 +63,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		var A_value;
 		var B_value;
 		var C_value;
-		var total_day;	// contract total day
+		var total_day;	// contract total day		
+		var end_manually;
+		var using_day;
 	
 	if (!Modernizr.inputtypes.date) {	    
         $('#datepicker_1').datetimepicker({
@@ -570,11 +573,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					B_value = comapy_num[company_index].contract_value[i].preferential[contract_rate_index];
 					C_value = $("#Subsidy").val();
 					total_day = contract_totalday;
-					console.log(A_value+"	"+B_value+"	"+C_value+"	"+total_day);
-					//console.log(comapy_num[company_index].contract_value[i].fee[contract_rate_index]);
-					// var today_end;
-					//var end_manually;
-					
+						
+					var d_parts = start_date.split('-');				
+					var end_date = new Date(d_parts[0],d_parts[1]-1,d_parts[2]);
+					end_date.setDate(end_date.getDate()+ parseInt(contract_totalday));					
+					end_manually = Math.round(DateDifference(manually_date,end_date));
+					using_day = total_day - end_manually;										
 					break;
 				}
 			}
@@ -584,8 +588,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		function Calculator()
 		{
 			//[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543
-			//var temp  = ((B_value / 30) * (total_day - today_end)) + parseFloat(A_value) + parseFloat(C_value);
-			//var demages = temp * (end_manually / total_day);
+			var temp  = ((B_value / 30) * (using_day)) + parseFloat(A_value) + parseFloat(C_value);
+			var demages = temp * (end_manually / total_day);
+			console.log(Math.round(demages));
 		}		
 	
 });
@@ -631,16 +636,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <td><h3>原合約名稱</h3></td>
                     <td id="Contract_name" width="auto">              
                     </td>
+                  </tr>
+                  <tr>
+                    <td><h3>專案補貼款(手機/平板)</h3></td>
+                    <td width="auto"><input id="Subsidy"></td>
                   </tr> 
                   <tr>
                     <td><h3>月租費</h3></td>
                     <td id="Contract_rate" width="auto">              
                     </td>
-                  </tr>
-                  <tr>
-                    <td><h3>專案補貼款(手機/平板)</h3></td>
-                    <td width="auto"><input id="Subsidy"></td>
-                  </tr>
+                  </tr>                  
                   <tr>
                     <td><h3><label id='damages_tag'>違約金總計為</label></h3></td>
                     <td width="auto"><label class="style2" id='damages_val'>$</label>&nbsp;<label id='damages_unit'>元</label>
