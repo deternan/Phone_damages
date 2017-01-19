@@ -48,6 +48,7 @@ Last update: January 20, 2017 00:29 AM
 	var C_value;
 	var today_end;
 	var end_manually;
+	var using_day;
 	var total_day;
 	var contract_month;
 	var contract_date;
@@ -101,8 +102,9 @@ Last update: January 20, 2017 00:29 AM
 		// Time Gap
 		//var start_today = DateDifference(start_date,Today);
 		end_manually = DateDifference(manually_date,end_date);
-		today_end = DateDifference(Today,end_date);
+		//today_end = DateDifference(Today,end_date);		
 		total_day = DateDifference(start_date,end_date);
+		using_day = total_day - end_manually;
 		
 		// damages calculator
 		Calculator();
@@ -111,9 +113,9 @@ Last update: January 20, 2017 00:29 AM
 	function Calculator()
 	{
 		//[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543
-		var temp  = ((B_value / 30) * (total_day - today_end)) + parseFloat(A_value) + parseFloat(C_value);
-		var demages = temp * (end_manually / total_day);
-		
+		//var temp  = ((B_value / 30) * (total_day - today_end)) + parseFloat(A_value) + parseFloat(C_value);
+		var temp  = ((B_value / 30) * (using_day)) + parseFloat(A_value) + parseFloat(C_value);
+		var demages = temp * (end_manually / total_day);		
 		//alert(parseInt(demages));
 		$("#damages_text").show();
 		
@@ -249,11 +251,11 @@ Last update: January 20, 2017 00:29 AM
           <h3>範例</h3>
           <p>某使用者門號起始的日期為2015年8月10日<br />
             - 門號合約長度24個月 (共730天)<br />
-            - 至今(假設為 2016年12月28日)已使用 506天 (2015/08/10 - 2016/12/28)<br />
+            - 至今(假設為 2016年12月28日)已使用 506天 (2016/12/28 - 2015/08/10)<br />
             - 離合約結束時間為 224天 (730-506), 其違約金為:<br/>
           </p>
-          <p>[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2548</p>
-          <p>故若在2016年12月28日這一天解約, 則需要賠償 NT 2548</p>
+          <p>[((36/30) * 506)+6700+1000] * (224/730) = NT 2549</p>
+          <p>故若在2016年12月28日這一天解約, 則需要賠償 NT 2549</p>
           <p>&nbsp;</p>
           <h2>開始計算</h2>
           <form>
