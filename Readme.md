@@ -18,12 +18,15 @@
 公式計算
 (已享月租費優惠+終端設備補貼) * (合約剩餘日數 / 合約總長度日數)
 
-某使用者門號起始的日期為 2015年8月10日; 合約24個月, 共730天
-至今 (假設為 2016年12月28日) 共 506天, 離合約結束時間為 224天
+某使用者
+* 門號起始的日期為2015年8月10日
+* 門號合約長度24個月 (共730天)
+* 至今(假設為 2016年12月28日)已使用 506天 (2015/08/10 - 2016/12/28)
+* 離合約結束時間為 224天 (730-506); 
 
-[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543
+[((36/30) * 506)+6700+1000] * (224/730) = NT 2548
 
-故若在2016年12月28日這一天解約, 則需要賠償 NT 2543
+故若在2016年12月28日這一天解約, 則需要賠償 NT 2548
 
 
 ### Reference
@@ -31,6 +34,7 @@
 
 ### History
 
+* January 20, 2017	Revised penalty function
 * January 19, 2017	Add mobile version (Responsive Web Design), Alpha version
 * January 10, 2017	Add contract length (intuition selection) function
 * January 09, 2017	1st version released
@@ -45,7 +49,7 @@
 如果各位使用者覺得系統有問題, 請隨時與我聯絡, thanks
 E-mail : phelpske.dev at gmail dot com
 
-Last updated: January 19, 2017 01:40 AM
+Last updated: January 20, 2017 00:29 AM
 
 
 
