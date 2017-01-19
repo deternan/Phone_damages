@@ -34,7 +34,7 @@
 
 ### History
 
-* January 20, 2017	Revised penalty function
+* January 20, 2017	Revised penalty function & Finished mobile version
 * January 19, 2017	Add mobile version (Responsive Web Design), Alpha version
 * January 10, 2017	Add contract length (intuition selection) function
 * January 09, 2017	1st version released
@@ -49,7 +49,7 @@
 如果各位使用者覺得系統有問題, 請隨時與我聯絡, thanks
 E-mail : phelpske.dev at gmail dot com
 
-Last updated: January 20, 2017 00:29 AM
+Last updated: January 20, 2017 01:15 AM
 
 
 
