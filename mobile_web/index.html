@@ -1,7 +1,7 @@
 <!--
 Author: Chao-Hsuan Ke
 Mail: phelpske.dev at gmail dot com
-Last update: January 20, 2017 00:29 AM
+Last update: January 22, 2017 00:17 AM
 Web
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
@@ -24,9 +24,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 	// device check (PC or mobile)  
   	var userAgentInfo = navigator.userAgent;
-//	if(userAgentInfo.indexOf("Windows NT") >0){
-//		window.location.replace("http://52.199.217.21");
-//	}
+	if(userAgentInfo.indexOf("Windows NT") >0){
+		window.location.replace("https://deternan.github.io/Phone_damages/web_version/");
+	}
 	
 	// Google Analytics
   	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,9 +42,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		var mandarin_cht = new Array();
 		var mandarin_twm = new Array();
 		var mandarin_fet = new Array();
+		var mandarin_gt = new Array();
+		var mandarin_tstar = new Array();
 	
 		var cht_contract = new Array();
 		var twm_contract = new Array();
+		var fet_contract = new Array();
+		var gt_contract = new Array();
+		var tstar_contract = new Array();
 	
 		// Hidden
 		$("#damages_val").hide();
@@ -55,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		$("#Contract_rate").hide();
 	
 		var start_date;
-		//var end_date;
+		var end_date;
 		var manually_date;
 		var contract_length;
 	
@@ -66,6 +71,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		var total_day;	// contract total day		
 		var end_manually;
 		var using_day;
+		var demages;
 	
 	if (!Modernizr.inputtypes.date) {	    
         $('#datepicker_1').datetimepicker({
@@ -134,7 +140,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		mandarin_cht[i++] = new contract("請選擇合約租期", 0, []);
 		mandarin_cht[i++] = new contract("24個月", 24, ["請選擇合約方案", "大4G 金省方案 (7266)", "大4G 金鑽方案 (7267)", "大4G (新)優惠方案 (6890)", "4G平板大玩家方案 (6038)(24)", "4G智慧大玩家新方案 (6954)(24)", "4G學生優惠專案 (5327)(24)", "3G一般型資費方案 (5634)"]);
 		mandarin_cht[i++] = new contract("30個月", 30, ["請選擇合約方案", "大4G 金省方案 (7266)", "大4G 金鑽方案 (7267)", "大4G 大七喜 (7251)", "大4G (新)優惠方案 (6891)", "4G平板大玩家方案 (6038)(30)", "4G學生優惠專案 (5408)", "4G學生優惠專案 (5327)(30)"]);
-		mandarin_cht[i++] = new contract("36個月", 36, ["請選擇合約方案", "4G智慧大玩家新方案 (6954)(36)"])	
+		mandarin_cht[i++] = new contract("36個月", 36, ["請選擇合約方案", "4G智慧大玩家新方案 (6954)(36)"])				
 		// contract_value
 		var j=0;		
 		cht_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);								// A_value 				// B_value		// C_value = Subsidy
@@ -150,29 +156,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		cht_contract[j++] = new fee("4G智慧大玩家新方案 (6954)(36)", 10, ["請選擇費率",299,699,999,1199],[0,4200,10700,14200,15800],[0,100,100,0,0]);	
 		cht_contract[j++] = new fee("4G學生優惠專案 (5408)", 11, ["請選擇費率",587,787,987],[0,7000,8500,9500],[0,349,349,349]);
 		cht_contract[j++] = new fee("4G學生優惠專案 (5327)(30)", 12, ["請選擇費率",687,887,1087],[0,6000,7500,9500],[0,249,249,249]);
-		cht_contract[j++] = new fee("4G學生優惠專案 (5327)(24)", 13, ["請選擇費率",687,887,1087],[0,8000,9500,11000],[0,249,249,249]);
-					// A_value = cht_contract[X].subsidy[]
-						// cht_contract[X].fee[n];
-						
-		i=0;
+		cht_contract[j++] = new fee("4G學生優惠專案 (5327)(24)", 13, ["請選擇費率",687,887,1087],[0,8000,9500,11000],[0,249,249,249]);											
+		i = 0;
 		mandarin_twm[i++] = new contract("請選擇合約租期", 0, []);
-		mandarin_twm[i++] = new contract("24個月", 24, ["請選擇合約方案","4G上網綁約優惠", "4G平板上網資費"]);
-		mandarin_twm[i++] = new contract("30個月", 30, ["請選擇合約方案","4G上網綁約優惠"]);
-		mandarin_twm[i++] = new contract("36個月", 36, ["請選擇合約方案","4G平板上網資費"]);
+		mandarin_twm[i++] = new contract("24個月", 24, ["請選擇合約方案","4G上網綁約優惠(24)", "4G平板上網資費(24)"]);
+		mandarin_twm[i++] = new contract("30個月", 30, ["請選擇合約方案","4G上網綁約優惠(30)"]);
+		mandarin_twm[i++] = new contract("36個月", 36, ["請選擇合約方案","4G平板上網資費(36)"]);
 		j = 0;
-		twm_contract[j++] = new fee("請選擇合約方案", 0, [],[],[]);
-		twm_contract[j++] = new fee("4G上網綁約優", 1, [0,399,599,799,999,1199,1399,1599,1999,2699],[0,5000,7000,9500,11000,12500,15500,17000,20000,24900],[0,0,0,0,0,0,0,0,0,0]);
+		twm_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
+		twm_contract[j++] = new fee("4G上網綁約優惠(24)", 1, ["請選擇費率",399,599,799,999,1199,1399,1599,1899,2699],[0,5000,7000,9500,11000,12500,15500,17000,20000,24900],[0,0,0,0,0,0,0,0,0,0]);
+		twm_contract[j++] = new fee("4G上網綁約優惠(30)", 2, ["請選擇費率",399,599,799,999,1199,1399,1599,1899,2699],[0,6000,8000,10500,12000,15500,18500,20000,23000,24900],[0,0,0,0,0,0,0,0,0,0]);
+		twm_contract[j++] = new fee("4G平板上網資費(24)", 3, ["請選擇費率",299,499,699,899,1199,1499],[0,4500,6000,7000,10000,11000,14000],[0,0,0,0,0,0,0]);
+		twm_contract[j++] = new fee("4G平板上網資費(36)", 4, ["請選擇費率",299,499,699,899,1199,1499],[0,5500,7000,9000,13000,14000,18000],[0,0,0,0,0,0,0]);
+		i = 0;
+		mandarin_fet[i++] = new contract("請選擇合約租期", 0, []);
+		mandarin_fet[i++] = new contract("24個月", 24, ["請選擇合約方案","4G平板上網資費"]);
+		mandarin_fet[i++] = new contract("30個月", 30, ["請選擇合約方案","4.5 G學生專案","4G上網綁約優惠"]);
+		j = 0;
+		fet_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
+		fet_contract[j++] = new fee("4G平板上網資費", 1, ["請選擇費率",199,399,599,799,999,1199,1799,2699],[0,0,4000,8000,10000,11000,14000,21000,26000],[0,0,0,0,0,0,0]);
+		fet_contract[j++] = new fee("4.5 G學生專案", 2, ["請選擇費率",599,799,999],[0,9000,10000,12000],[0,0,0,0]);
+		fet_contract[j++] = new fee("4G上網綁約優惠", 3, ["請選擇費率",399,599,799,999,1199,1399,1799,2699],[0,5000,9000,11000,12000,15000,19000,22000,27000],[0,0,0,0,0,0,0,0,0]);
+		i =0;
+		mandarin_gt[i++] = new contract("請選擇合約租期", 0, []);
+		mandarin_gt[i++] = new contract("30個月", 30, ["請選擇合約方案","全國悠遊網Gt30期專案", "全國壹大網"]);
+		j =0;
+		gt_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
+		gt_contract[j++] = new fee("全國悠遊網Gt30期專案", 1, ["請選擇費率",498,598,698,898,1098,1398,1598,1798,1998,2598],[0,9200,10000,10700,12500,15500,19000,20000,22000,23000,27000],[0,0,0,0,0,0,0,0,0,0,0]);
+		gt_contract[j++] = new fee("全國壹大網", 2, ["請選擇費率",399,699,999,1299,1599],[0,8000,11000,15000,18000,19000],[0,0,0,0,0,0]);
+		i = 0;
+		mandarin_tstar[i++] = new contract("請選擇合約租期", 0, []);
+		mandarin_tstar[i++] = new contract("12個月", 12, ["請選擇合約方案","4G入門","保證最低價","U25-入門單門號方案(12)"]);
+		mandarin_tstar[i++] = new contract("24個月", 24, ["請選擇合約方案","U25-入門單門號方案(24)","4G_勁速(24)"]);
+		mandarin_tstar[i++] = new contract("30個月", 30, ["請選擇合約方案","U25-入門單門號方案(30)","4G_勁速(30)"]);		
+		j = 0;
+		tstar_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
+		tstar_contract[j++] = new fee("4G入門", 1, ["請選擇費率",88,188,288,488],[0,1200,1200,1800,2400],[0,0,0,0,0]);
+		tstar_contract[j++] = new fee("保證最低價", 2, ["請選擇費率",188,288,388,488,588,688,788,888,988],[0,2400,2400,2400,2400,2400,2400,2400,2400,2400],[0,0,0,0,0,0,0,0,0,0]);
+		tstar_contract[j++] = new fee("U25-入門單門號方案(12)", 3, ["請選擇費率",388],[0,2400],[0,0]);
+		tstar_contract[j++] = new fee("U25-入門單門號方案(24)", 4, ["請選擇費率",599,699],[0,9000,9000],[0,250,399]);
+		tstar_contract[j++] = new fee("U25-入門單門號方案(30)", 5, ["請選擇費率",388,599,699],[0,8000,10000,10000],[0,499,250,399]);
+		tstar_contract[j++] = new fee("4G_勁速(24)", 6, ["請選擇費率",199,599,799,999,1199],[0,4000,9000,10000,12000,14000],[0,50,250,250,370,460]);
+		tstar_contract[j++] = new fee("4G_勁速(30)", 7, ["請選擇費率",199,599,799,999,1199],[0,6000,10000,11000,14000,17000],[0,50,250,250,370,460]);
 		
-		
-	
-	
 		// 電信公司
 		var company = new Array();
 		var i=0;
 		company[i++] = new node("選擇電信商", 0, "null");			
 		company[i++] = new node("中華電信", 1, mandarin_cht, cht_contract);			
 		company[i++] = new node("台灣大哥大", 2, mandarin_twm, twm_contract);
-		company[i++] = new node("遠傳電信", 3, mandarin_fet, cht_contract);
+		company[i++] = new node("遠傳電信", 3, mandarin_fet, fet_contract);
+		company[i++] = new node("亞太電信", 4, mandarin_gt, gt_contract);
+		company[i++] = new node("台灣之星", 5, mandarin_tstar, tstar_contract);
 		
 		return(company);
 	}
@@ -190,8 +225,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	console.log(comapy_num[1].contract_value[0].name);
 	console.log(comapy_num[1].contract_value[3].name);
 	*/
-	
-	// -----------------------------------------------------------------------
+		
 	var company_index;
 	var contract_length_index;		var contract_totalday;
 	var contract_name;
@@ -244,9 +278,40 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		}
 		contarct_twm += "</select>";
 		$('#Contract_month').html(contarct_twm);	
+	}	
+	// FET
+	function FET_contract_month(){
+		var contarct_fet;
+		contarct_fet = "<select class='Contract_month'>";
+		for (var i = 0; i < mandarin_fet.length; i++) 
+		{    	
+			contarct_fet += "<option name='"+mandarin_fet[i].time_length_str +"' value='"+mandarin_fet[i].time_length_val+"'>"+mandarin_fet[i].time_length_str+"</option>"+"\n";
+		}
+		contarct_fet += "</select>";
+		$('#Contract_month').html(contarct_fet);	
+	}	
+	// GT
+	function GT_contract_month(){
+		var contarct_gt;
+		contarct_gt = "<select class='Contract_month'>";
+		for (var i = 0; i < mandarin_gt.length; i++) 
+		{    	
+			contarct_gt += "<option name='"+mandarin_gt[i].time_length_str +"' value='"+mandarin_gt[i].time_length_val+"'>"+mandarin_gt[i].time_length_str+"</option>"+"\n";
+		}
+		contarct_gt += "</select>";
+		$('#Contract_month').html(contarct_gt);	
+	}	
+	// Tstart
+	function TSTAR_contract_month(){
+		var contarct_tstart;
+		contarct_tstar = "<select class='Contract_month'>";
+		for (var i = 0; i < mandarin_tstar.length; i++) 
+		{    	
+			contarct_tstar += "<option name='"+mandarin_tstar[i].time_length_str +"' value='"+mandarin_tstar[i].time_length_val+"'>"+mandarin_tstar[i].time_length_str+"</option>"+"\n";
+		}
+		contarct_tstar += "</select>";
+		$('#Contract_month').html(contarct_tstar);	
 	}
-	
-	
 	
 	// Add (Contract)(Name)
 	// Null	
@@ -258,7 +323,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		$('#Contract_name').html(contarct_null);
 	}
 	
-	
 	// CHT
 	function CHT_contract_name(length){
 		var contract_cht;
@@ -268,8 +332,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			if(mandarin_cht[i].time_length_val === length){
 				temp_array = mandarin_cht[i].name;
 			}
-		}		
-		
+		}				
 		contarct_cht = "<select class='Contract_name'>";
 		for (var i=0; i<temp_array.length; i++) 
 		{    	
@@ -281,13 +344,79 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 	// TWM
 	function TWM_contract_name(length){
-		
+		var contract_twm;
+		var temp_array = new Array();
+		for(var i=0; i<mandarin_twm.length; i++)
+		{
+			if(mandarin_twm[i].time_length_val === length){
+				temp_array = mandarin_twm[i].name;
+			}
+		}				
+		contarct_twm = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			contarct_twm += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		contarct_twm += "</select>";
+		$('#Contract_name').html(contarct_twm);
 	}
 	
 	// FET
+	function FET_contract_name(length){
+		var contract_fet;
+		var temp_array = new Array();
+		for(var i=0; i<mandarin_fet.length; i++)
+		{
+			if(mandarin_fet[i].time_length_val === length){
+				temp_array = mandarin_fet[i].name;
+			}
+		}				
+		contarct_fet = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			contarct_fet += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		contarct_fet += "</select>";
+		$('#Contract_name').html(contarct_fet);
+	}
 	
+	// GT
+	function GT_contract_name(length){
+		var contract_gt;
+		var temp_array = new Array();
+		for(var i=0; i<mandarin_gt.length; i++)
+		{
+			if(mandarin_gt[i].time_length_val === length){
+				temp_array = mandarin_gt[i].name;
+			}
+		}				
+		contarct_gt = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			contarct_gt += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		contarct_gt += "</select>";
+		$('#Contract_name').html(contarct_gt);
+	}
 	
-	
+	// Tstar
+	function TSTAR_contract_name(length){		
+		var contract_tstar;
+		var temp_array = new Array();
+		for(var i=0; i<mandarin_tstar.length; i++)
+		{
+			if(mandarin_tstar[i].time_length_val === length){
+				temp_array = mandarin_tstar[i].name;
+			}
+		}				
+		contarct_tstar = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			contarct_tstar += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		contarct_tstar += "</select>";
+		$('#Contract_name').html(contarct_tstar);
+	}
 	
 	// Add (Contract)(Name)
 	function Null_contract_rate(){
@@ -308,8 +437,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			if(cht_contract[i].name === contract_name){
 				temp_array = cht_contract[i].fee;
 			}
-		}
-		//console.log(temp_array);
+		}		
 		rate_cht = "<select class='Contract_name'>";
 		for (var i=0; i<temp_array.length; i++) 
 		{    	
@@ -318,7 +446,85 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		rate_cht += "</select>";
 		$('#Contract_rate').html(rate_cht);	
 	}
-		
+	// TWM
+	function TWM_contract_rate(){
+		var rate_twm;				
+		rate_twm = "<select class='Contract_rate'>";		
+		var temp_array = new Array();
+		for(var i=0; i<twm_contract.length; i++)
+		{
+			if(twm_contract[i].name === contract_name){
+				temp_array = twm_contract[i].fee;
+			}
+		}		
+		rate_twm = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			rate_twm += "<option name='"+temp_array[i]+"' value='"+temp_array[i]+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		rate_twm += "</select>";
+		$('#Contract_rate').html(rate_twm);	
+	}
+	
+	// FET
+	function FET_contract_rate(){
+		var rate_fet;				
+		rate_fet = "<select class='Contract_rate'>";		
+		var temp_array = new Array();
+		for(var i=0; i<fet_contract.length; i++)
+		{
+			if(fet_contract[i].name === contract_name){
+				temp_array = fet_contract[i].fee;
+			}
+		}		
+		rate_fet = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			rate_fet += "<option name='"+temp_array[i]+"' value='"+temp_array[i]+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		rate_fet += "</select>";
+		$('#Contract_rate').html(rate_fet);	
+	}
+	
+	// GT
+	function GT_contract_rate(){
+		var rate_gt;				
+		rate_gt = "<select class='Contract_rate'>";		
+		var temp_array = new Array();
+		for(var i=0; i<gt_contract.length; i++)
+		{
+			if(gt_contract[i].name === contract_name){
+				temp_array = gt_contract[i].fee;
+			}
+		}		
+		rate_gt = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			rate_gt += "<option name='"+temp_array[i]+"' value='"+temp_array[i]+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		rate_gt += "</select>";
+		$('#Contract_rate').html(rate_gt);	
+	}
+	
+	// Tstar
+	function TSTAR_contract_rate(){
+		var rate_tstar;				
+		rate_tstar = "<select class='Contract_rate'>";		
+		var temp_array = new Array();
+		for(var i=0; i<tstar_contract.length; i++)
+		{
+			if(tstar_contract[i].name === contract_name){
+				temp_array = tstar_contract[i].fee;
+			}
+		}		
+		rate_tstar = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			rate_tstar += "<option name='"+temp_array[i]+"' value='"+temp_array[i]+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		rate_tstar += "</select>";
+		$('#Contract_rate').html(rate_tstar);	
+	}	
 	
 	// ---------------------------------------------------------------------------------------------------------------
 
@@ -351,30 +557,51 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			}
    			//console.log("台灣大哥大");
 			$('#Contract_month').html(mandarin_twm[0].time_length_str);
-//			$('#Contract_name').html(twm_contract[0].name);
 			company_index = 2;
 			TWM_contract_month();
 			Null_contract_name();
 			Null_contract_rate();
 			$("#Contract_month").show();
-  	 	}else if($(this).val() === 3){
+  	 	}else if(select_company_value === "3"){
 			if(manually_date == null){
 				alert("須先設定欲解約日期");
 			}
    			//console.log("遠傳電信");
+			$('#Contract_month').html(mandarin_fet[0].time_length_str);
 			company_index = 3;
-			
+			FET_contract_month();
 			Null_contract_name();
 			Null_contract_rate();
 			$("#Contract_month").show();
-  	 	}	 
+  	 	}else if(select_company_value === "4"){
+			if(manually_date == null){
+				alert("須先設定欲解約日期");
+			}
+   			//console.log("亞太電信");
+			$('#Contract_month').html(mandarin_gt[0].time_length_str);
+			company_index = 4;
+			GT_contract_month();
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_month").show();  	 	
+		}else if(select_company_value === "5"){
+			if(manually_date == null){
+				alert("須先設定欲解約日期");
+			}
+   			//console.log("台灣之星");
+			$('#Contract_month').html(mandarin_tstar[0].time_length_str);
+			company_index = 5;
+			TSTAR_contract_month();
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_month").show();
+  	 	} 
     	});
 	
 		// Contract month (Create)
 		var select_contract_length;
 		$("#Contract_month").change(function(){
 		select_contract_length = $("#Contract_month option:selected" ).val();
-		//console.log(select_contract_length);
 			
 		if(select_contract_length === "0"){
 			//$('#Contract_name').html(cht_contract[0].name);
@@ -390,15 +617,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			switch(company_index)
 			{
 				case 1:					
-					//CHT_contract_name(12);
+					CHT_contract_name(12);					
 				break;
 				case 2:					
-					//TWM_Contract_name(12);
-				break;
-				
+					TWM_contract_name(12);
+				break;				
 				case 3:
-				
+					FET_contract_name(12);
 				break;
+				case 4:
+					GT_contract_name(12);
+				break;
+				case 5:
+					TSTAR_contract_name(12);
+				break;				
 			}			
 		}else if(select_contract_length === "24"){
 			contract_length_index = 24;
@@ -416,8 +648,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					TWM_contract_name(24);
 				break;				
 				case 3:
-				
+					FET_contract_name(24);
 				break;
+				case 4:
+					GT_contract_name(24);
+				break;
+				case 5:
+					TSTAR_contract_name(24);
+				break;	
 			}
 		}else if(select_contract_length === "30"){
 			contract_length_index = 30;
@@ -434,8 +672,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					TWM_contract_name(30);
 				break;				
 				case 3:
-				
+					FET_contract_name(30);
 				break;
+				case 4:
+					GT_contract_name(30);
+				break;
+				case 5:
+					TSTAR_contract_name(30);
+				break;	
 			}
 		}else if(select_contract_length === "36"){
 			contract_length_index = 36;
@@ -452,8 +696,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					TWM_contract_name(36);
 				break;				
 				case 3:
-				
+					FET_contract_name(36);
 				break;
+				case 4:
+					GT_contract_name(36);
+				break;
+				case 5:
+					TSTAR_contract_name(36);
+				break;	
 			}
 		}
 		
@@ -475,10 +725,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						CHT_contract_rate();
 					break;
 					case 2:					
-									
+						TWM_contract_rate();			
 					break;				
 					case 3:
-				
+						FET_contract_rate();			
+					break;
+					case 4:
+						GT_contract_rate();			
+					break;
+					case 5:
+						TSTAR_contract_rate();			
 					break;
 				}	
 			}				
@@ -490,29 +746,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			start_date = document.getElementById('datepicker_1').value;		
 			//$('.Contract_length').val('0');
 		});
-		
-		// End date
-/*		
-		$("#datepicker_2").change(function(){
-			end_date = document.getElementById('datepicker_2').value;		
-		});
-*/		
-		/*
-		// Contract length 
-		$("#Contract_length").change(function(){			
-			
-			if(start_date != null){
-				contract_length = $("#Contract_length option:selected" ).val();	
-				//console.log(contract_length);				
-				var d_parts = start_date.split('-');				
-				var end_date = new Date(d_parts[0],d_parts[1]-1,d_parts[2]);
-				end_date.setDate(end_date.getDate()+ parseInt(contract_length));		
-				//console.log(start_date+"	"+new_date);				
-			}else{
-				alert("須設定合約起始日期");
-			}			
-		});
-		*/
 		
 		// Manually_date		
 		$("#datepicker_3").change(function(){
@@ -545,9 +778,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			if(start_date == null){
 				alert("須設定合約起始日期");
 			}
-			//if(end_date == null){
-			//	alert("須設定合約結束日期");
-			//}
+			
 			if(manually_date == null){
 				alert("須設定欲解約日期");
 			}
@@ -574,12 +805,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					C_value = $("#Subsidy").val();
 					total_day = contract_totalday;
 						
+					//
+					var d_parts = manually_date.split('-');
+					var manually_date_temp = new Date(d_parts[0],d_parts[1]-1,d_parts[2]);
+						
 					var d_parts = start_date.split('-');				
-					var end_date = new Date(d_parts[0],d_parts[1]-1,d_parts[2]);
-					end_date.setDate(end_date.getDate()+ parseInt(contract_totalday));					
-					end_manually = Math.round(DateDifference(manually_date,end_date));
-					using_day = total_day - end_manually;										
-					break;
+					var temp_day = new Date(d_parts[0],d_parts[1]-1,d_parts[2]);					
+				    temp_day.setDate(temp_day.getDate() + parseInt(contract_totalday));
+					end_date = temp_day;					
+					
+					end_manually = DateDifference(manually_date_temp,end_date);					
+					
+					if(end_manually < 0){
+						alert("提前解約日期不得超過合約終止日期");
+					}else{
+						using_day = total_day - end_manually;										
+						break;
+					}
 				}
 			}
 		}
@@ -589,8 +831,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		{
 			//[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543
 			var temp  = ((B_value / 30) * (using_day)) + parseFloat(A_value) + parseFloat(C_value);
-			var demages = temp * (end_manually / total_day);
-			console.log(Math.round(demages));
+			demages = temp * (end_manually / total_day);			
+			
+			//console.log(B_value+"	"+using_day+"	"+A_value+"	"+C_value+"	"+end_manually+"	"+total_day);
+			Call_alert();
+		}
+		
+		function Call_alert()
+		{
+			var d_parts = start_date.split('-');				
+			var year_s = d_parts[0];
+			var month_s = d_parts[1];
+			var day_s = d_parts[2];
+			
+			var year_e = end_date.getFullYear();
+			var month_e = end_date.getMonth()+1;
+			var day_e = end_date.getDay();
+			
+			d_parts = manually_date.split('-');
+			var year_m = d_parts[0];
+			var month_m = d_parts[1];
+			var day_m = d_parts[2];
+			
+			var alert_str = "合約從"+year_s+"年"+month_s+"月"+day_s+"日至"+year_e+"年"+month_e+"月"+day_e+"日" + "\n";
+			alert_str += "若於" +year_m+"年"+month_m+"月"+day_m+"日提前解約" +"\n";
+			alert_str += "解約金為" + parseInt(demages) +"元";
+			//console.log(alert_str);
+			alert(alert_str);
 		}		
 	
 });
@@ -610,6 +877,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="sign-in-wthree">
 		<div class="sign-in-top-agileinfo">			
 			<p>讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少, 可藉由此計算機來幫助計算</p>
+			<td width="100%" align="right">
+              <div id="fb-root"></div>
+				<script>(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>  
+                <div align="right">
+                <div class="fb-share-button" data-href="https://deternan.github.io/Phone_damages/mobile_web/" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeternan.github.io%2FPhone_damages%2Fmobile_web%2F&amp;src=sdkpreparse">Share</a></div></div>
+              </td>
 	  </div>
 		<div class="sign-in-bottom-agileinfo">
 			<form action="#" method="post">
