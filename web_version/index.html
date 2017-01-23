@@ -1,6 +1,6 @@
 <!--
 Author: Chao-Hsuan Ke
-Last update: January 20, 2017 00:29 AM
+Last update: January 23, 2017 09:19 PM
 -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -101,11 +101,10 @@ Last update: January 20, 2017 00:29 AM
 //		var Today = (dt.getMonth()+1)+"/"+dt.getDate()+"/"+dt.getFullYear();				
 		// Time Gap
 		//var start_today = DateDifference(start_date,Today);
-		end_manually = DateDifference(manually_date,end_date);
-		//today_end = DateDifference(Today,end_date);		
+		end_manually = DateDifference(manually_date,end_date);		
 		total_day = DateDifference(start_date,end_date);
 		using_day = total_day - end_manually;
-		
+		console.log(manually_date+"	"+end_manually+"	"+total_day+"	"+using_day);
 		// damages calculator
 		Calculator();
     });
@@ -117,6 +116,7 @@ Last update: January 20, 2017 00:29 AM
 		var temp  = ((B_value / 30) * (using_day)) + parseFloat(A_value) + parseFloat(C_value);
 		var demages = temp * (end_manually / total_day);		
 		//alert(parseInt(demages));
+		//console.log(B_value+"	"+using_day+"	"+A_value+"	"+C_value+"	"+end_manually+"	"+total_day);
 		$("#damages_text").show();
 		
 		$("#damages_val").show();
@@ -189,11 +189,11 @@ Last update: January 20, 2017 00:29 AM
 -->
 </style>
 <!-- Facebook Tag -->
-<meta property="og:url"           content="http://52.199.217.21/" />
+<meta property="og:url"           content="https://deternan.github.io/Phone_damages/web_version/" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="門號解約金計算機" />
 <meta property="og:description"   content="讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少,藉由此計算機來幫助計算" />
-<meta property="og:image"         content="http://52.199.217.21/images/calculator.png" />
+<meta property="og:image"         content="https://deternan.github.io/Phone_damages/web_version/images/calculator.png" />
 </head>
 <body>
 <div class="main">
@@ -237,7 +237,7 @@ Last update: January 20, 2017 00:29 AM
 				  fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script', 'facebook-jssdk'));</script>  
                 
-                <div class="fb-share-button" data-href="http://52.199.217.21/" data-layout="button" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F52.199.217.21%2F&amp;src=sdkpreparse">Share</a></div>
+                <div class="fb-share-button" data-href="https://deternan.github.io/Phone_damages/web_version/" data-layout="box_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeternan.github.io%2FPhone_damages%2Fweb_version%2F&amp;src=sdkpreparse">Share</a></div>
               </td>
             </tr>
           </table>
