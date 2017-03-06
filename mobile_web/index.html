@@ -1,7 +1,7 @@
 <!--
 Author: Chao-Hsuan Ke
 Mail: phelpske.dev at gmail dot com
-Last update: March 05, 2017 01:40 PM
+Last update: March 06, 2017 10:06 PM
 Web
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
@@ -93,22 +93,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         });		    
      }
 	
-	/*
-	// Contract length
-	Create_Contract_length();
-	function Create_Contract_length(){
-		var selectList_comapy;
-		selectList_comapy = "<select class='Contract_length'>";	
-		selectList_comapy += "<option name='請選擇合約長度' value='"+0+"'>請選擇合約長度</option>"+"\n";
-		selectList_comapy += "<option name='12個月' value='"+365+"'>12個月</option>"+"\n";
-		selectList_comapy += "<option name='24個月' value='"+730+"'>24個月</option>"+"\n";
-		selectList_comapy += "<option name='30個月' value='"+912+"'>30個月</option>"+"\n";
-		selectList_comapy += "<option name='36個月' value='"+1095+"'>36個月</option>"+"\n";
-		selectList_comapy += "</select>";
-		$('#Contract_length').html(selectList_comapy);
-	}
-	*/
-	
 	// Subsidy
 	$("#Subsidy").val("0");
 	
@@ -141,7 +125,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		mandarin_cht[i++] = new contract("請選擇合約租期", 0, []);
 		mandarin_cht[i++] = new contract("24個月", 24, ["請選擇合約方案", "4G智慧大玩家新方案 (7317)","大4G 金省方案 (7266)", "大4G 金鑽方案 (7267)", "大4G (新)優惠方案 (6890)", "4G平板大玩家方案 (6038)(24)", "4G智慧大玩家新方案 (6954)(24)", "4G學生優惠專案 (5327)(24)", "3G一般型資費方案 (5634)"]);
 		mandarin_cht[i++] = new contract("30個月", 30, ["請選擇合約方案", "4G學生10分好講專案 (7316)","大4G 金省方案 (7266)", "大4G 金鑽方案 (7267)", "大4G 大七喜 (7251)", "大4G (新)優惠方案 (6891)", "4G平板大玩家方案 (6038)(30)", "4G學生優惠專案 (5408)", "4G學生優惠專案 (5327)(30)"]);
-		mandarin_cht[i++] = new contract("36個月", 36, ["請選擇合約方案", "4G智慧大玩家新方案 (6954)(36)"])				
+		mandarin_cht[i++] = new contract("36個月", 36, ["請選擇合約方案", "4G智慧大玩家新方案 (6954)(36)"])
 		// contract_value
 		var j=0;		
 		cht_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);								// A_value 				// B_value		// C_value = Subsidy
@@ -793,15 +777,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			if(manually_date == null){
 				alert("須設定欲解約日期");
 			}
-			if((start_date!=null)&&(manually_date!=null)){
-				//console.log("Ya");					
-				//console.log(contract_rate);
-				//contract_length_index	 長度 (12,24,30,36)
-				//contract_name			 名稱
-				//contract_rate			 費率
-				
-				//console.log(comapy_num[company_index].contract_name[1].time_length_val
-				//console.log(comapy_num[1].contract_value[3].name);
+			if((start_date!=null)&&(manually_date!=null)){				
 				Get_AllValue();				
 				Calculator();
 			}				
@@ -844,7 +820,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			var temp  = ((B_value / 30) * (using_day)) + parseFloat(A_value) + parseFloat(C_value);
 			demages = temp * (end_manually / total_day);			
 			
-			//console.log(B_value+"	"+using_day+"	"+A_value+"	"+C_value+"	"+end_manually+"	"+total_day);
 			Call_alert();
 		}
 		
