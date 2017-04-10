@@ -49,7 +49,10 @@
 如果各位使用者覺得系統有問題, 請隨時與我聯絡, thanks
 E-mail : phelpske.dev at gmail dot com
 
-Last updated: January 20, 2017 01:15 AM
+### Update
+每個月會更新一次各家的門號資訊
+
+Last updated: April 10, 2017 09:33 PM
 
 
 
