@@ -33,7 +33,7 @@
 日期相隔天數計算機 : [link](http://daybetween.0123456789.tw)
 
 ### History
-
+* June 04, 2017		Changed file from AWS to GitHub page
 * January 20, 2017	Revised penalty function & Finished mobile version
 * January 19, 2017	Add mobile version (Responsive Web Design), Alpha version
 * January 10, 2017	Add contract length (intuition selection) function
@@ -52,7 +52,7 @@ E-mail : phelpske.dev at gmail dot com
 ### Update
 每個月會更新一次各家的門號資訊
 
-Last updated: May 15, 2017 08:34 PM
+Last updated: June 04, 2017 01:36 PM
 
 
 
