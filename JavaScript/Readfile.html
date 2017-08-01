@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title></title>
+        <script>
+            function readTextFile(file)
+            {
+                    var rawFile = new XMLHttpRequest();
+                    rawFile.open("GET", file, false);
+                    rawFile.onreadystatechange = function ()
+                    {
+                        if(rawFile.readyState === 4)
+                        {
+                                if(rawFile.status === 200 || rawFile.status == 0)
+                                {
+                                    var splitResponse = rawFile.responseText.split( "\n" );
+									for(index = 0; index < splitResponse.length; index++) 
+									{
+										window.open(splitResponse[index]);
+									}                             
+                                }
+                        }
+                    }
+                    rawFile.send(null);
+            }
+        </script>
+    </head>
+    <body>
+        <script language="JavaScript">
+            readTextFile("https://deternan.github.io/Phone_damages/temp/Taiwan_Stock_company.txt");
+        </script>
+    </body>
+</html>
