@@ -2,6 +2,7 @@
     <head>
         <title></title>
         <script>
+			/*
             function readTextFile(file)
             {
                     var rawFile = new XMLHttpRequest();
@@ -22,11 +23,24 @@
                     }
                     rawFile.send(null);
             }
+			*/
+			
+			function populatePre(url) {
+				var xhr = new XMLHttpRequest();
+				xhr.onload = function () {
+				document.getElementById('contents').textContent = this.responseText;
+				};
+				xhr.open('GET', url);
+				xhr.send();
+			}
+		
+			
         </script>
     </head>
     <body>
         <script language="JavaScript">
-            readTextFile("https://deternan.github.io/Phone_damages/temp/Taiwan_Stock_company.txt");
+            //readTextFile("https://deternan.github.io/Phone_damages/temp/Taiwan_Stock_company.txt");
+			populatePre('https://deternan.github.io/Phone_damages/temp/Taiwan_Stock_company.txt');
         </script>
     </body>
 </html>
