@@ -1,6 +1,6 @@
 <!--
 Author: Chao-Hsuan Ke
-Last update: June 13, 2017 00:47 AM
+Last update: August 11, 2017 00:47 AM
 -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -17,8 +17,7 @@ Last update: June 13, 2017 00:47 AM
 <script>
   // device check (mobile)  
   if (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase())) {
-  	window.location.replace("https://deternan.github.io/Phone_damages/mobile_web/"); 
-	//window.location.replace("http://52.199.217.21/Phone_damages/mobile_web/");
+  	window.location.replace("https://deternan.github.io/Phone_damages/mobile_web/"); 	
   }  
   
   // Google Analytics
@@ -93,8 +92,7 @@ Last update: June 13, 2017 00:47 AM
 		// Data check
 		var start_date = document.getElementById('datepicker_1').value;
 		var end_date = document.getElementById('datepicker_2').value;
-		var manually_date = document.getElementById('datepicker_3').value;
-
+		var manually_date = document.getElementById('datepicker_3').value;		
 		Check_date(start_date, end_date, manually_date);
 		
 		// Today
@@ -112,11 +110,10 @@ Last update: June 13, 2017 00:47 AM
 	
 	function Calculator()
 	{
-		//[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543
-		//var temp  = ((B_value / 30) * (total_day - today_end)) + parseFloat(A_value) + parseFloat(C_value);
+		//[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543		
 		var temp  = ((B_value / 30) * (using_day)) + parseFloat(A_value) + parseFloat(C_value);
 		var demages = temp * (end_manually / total_day);		
-		//alert(parseInt(demages));
+		
 		//console.log(B_value+"	"+using_day+"	"+A_value+"	"+C_value+"	"+end_manually+"	"+total_day);
 		$("#damages_text").show();
 		
@@ -238,7 +235,7 @@ Last update: June 13, 2017 00:47 AM
 				  fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script', 'facebook-jssdk'));</script>  
                 
-                <div class="fb-share-button" data-href="http://52.199.217.21/Phone_damages/web_version" data-layout="button" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F52.199.217.21%2FPhone_damages%2Fweb_version&amp;src=sdkpreparse">Share</a></div>
+                <div class="fb-share-button" data-href="https://deternan.github.io/Phone_damages/web_version/" data-layout="button" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F52.199.217.21%2FPhone_damages%2Fweb_version&amp;src=sdkpreparse">Share</a></div>
               </td>
             </tr>
           </table>
@@ -263,11 +260,11 @@ Last update: June 13, 2017 00:47 AM
             <table style="width:100%">
               <tr>
                 <td width="28%">門號起始日期</td>
-                <td width="72%"><input type="text" id="datepicker_1" value="08/10/2015"></td>
+                <td width="72%"><input type="text" id="datepicker_1" value="08/10/2016"></td>
               </tr>
               <tr>
                 <td>門號結束日期</td>
-                <td><input type="text" id="datepicker_2" value="08/09/2017">&nbsp;
+                <td><input type="text" id="datepicker_2" value="08/09/2018">&nbsp;
                 <select id="Contract_month">
 				    <option name="12M" value="365">12 個月</option>
 				    <option name="24M" value="730" selected="selected">24 個月</option>
@@ -317,7 +314,7 @@ Last update: June 13, 2017 00:47 AM
   <div class="fbg"></div>
   <div class="footer">
     <div class="footer_resize">
-      <p class="lf">Last updated: July 23, 2017</p>
+      <p class="lf">Last updated: August 11, 2017</p>
       <p class="lf">&copy; Copyright MyWebSite. Designed by Blue <a href="http://www.bluewebtemplates.com/">Website Templates</a></p>
     </div>
     <div class="clr"></div>
