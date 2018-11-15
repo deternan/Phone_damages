@@ -1,0 +1,139 @@
+/*
+Design by http://www.bluewebtemplates.com
+Released for free under a Creative Commons Attribution 3.0 License
+*/
+@charset "UTF-8";
+/*
+ * cwTeXHei (Chinese-traditional) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+  font-family: "cwTeXHei";
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.eot);
+  src: url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.ttf) format('truetype');
+}
+
+body { margin:0; padding:0; width:100%; background:#fff url(images/main_bg.jpg) top center repeat-x; color:#5f5f5f; font:normal 12px/1.8em Arial, Helvetica, sans-serif;}
+html, .main { padding:0; margin:0; background-color:#e9e9e9;}
+.clr { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
+h1 {
+	margin:0;
+	padding:29px 0;
+	color:#fff;
+	font-family: "Courier New", Courier, monospace;
+	/*font-family: "cwTeXHei", sans-serif;*/
+	font-size: 40px;
+	font-style: normal;
+	line-height: 1.2em;
+	font-weight: normal;
+	font-variant: normal;
+}
+h1 a, h1 a:hover { color:#fff; text-decoration:none;}
+h1 span { color:#007236;}
+h1 small { padding-left:38px; font:normal 13px/1.2em Arial, Helvetica, sans-serif;}
+h2 { font:bold 24px Arial, Helvetica, sans-serif; color:#323a3f; padding:8px 0; margin:8px 0;}
+p { margin:8px 0; padding:0 0 8px 0; font:normal 12px/1.8em Arial, Helvetica, sans-serif;}
+a { color:#61a203; text-decoration:none;}
+
+.header, .hbg, .content, .fbg, .footer { margin:0; padding:0;}
+.hbg_resize, .content_resize, .fbg_resize {
+	width:800px;
+	background-color:#fff;
+	-moz-border-radius:10px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding-top: 24px;
+	padding-right: 40px;
+	padding-bottom: 24px;
+	padding-left: 40px;
+}
+
+/* header */
+.header { background:url(images/header_bg.gif) repeat-x top;}
+.header_resize { margin:0 auto; padding:0; width:900px;}
+.header .logo { width:auto; float:left; font-family: "cwTeXHei", sans-serif;}
+.header .menu ul { margin:1px 0 0 0; padding:0; float:right; width:auto; list-style:none;}
+.header .menu ul li { margin:0; float:left;}
+.header .menu ul li a { margin:0; padding:12px 10px; color:#5f5f5f; text-decoration:none; line-height:36px;}
+.header .menu ul li a span { margin:0; padding:12px 0 12px 10px;}
+.header .menu ul li a:hover, .header .menu ul li.active a { color:#fff; background:url(images/menu_r.gif) no-repeat right top;}
+.header .menu ul li a:hover span, .header .menu ul li.active a span { background:url(images/menu.gif) repeat-x top;}
+
+/* search */
+#formsearch { margin:0; padding:36px 0 0 0;}
+#formsearch span { display:block; margin:7px 0 6px 0; padding:0 8px 0 11px !important; padding:0 4px 0 6px; float:right; width:170px; background:#fff url(images/search.gif) no-repeat top left;}
+#formsearch input.editbox_search { margin:0; padding:6px 0; float:left; width:170px; height:12px; border:none; background:none; font:normal 13px/16px Arial, Helvetica, sans-serif; color:#a8acb2;}
+#formsearch input.button_search { margin:7px 0 0 0; padding:0; border:none; float:right;}
+
+/* hbg */
+.hbg { padding:16px 0;}
+.hbg_resize { padding-right:486px; width:454px; height:291px; background:#fff url(images/hbg_img.jpg) no-repeat top right;}
+.hbg_new { padding-right:486px; width:454px; height:291px; background:#fff no-repeat top right;}
+
+/* content */
+.content { padding-bottom:16px;}
+.content .mainbar {
+	margin:0;
+	padding:0;
+	float:center;
+	width:auto;
+}
+.content .mainbar .article, .content .sidebar .gadget { margin:0; padding:0 0 16px 0;}
+.content .sidebar { margin:0; padding:0; float:right; width:220px;}
+ul.sb_menu, ul.ex_menu { margin:0; padding:0; list-style:none;}
+ul.sb_menu li, ul.ex_menu li { margin:0; padding:0; border-bottom:1px dashed #e9e5e5;}
+ul.ex_menu li { color:#959595;}
+ul.sb_menu li a, ul.ex_menu li a { margin:0; padding-left:24px; color:#5f5f5f; text-decoration:none; background:url(images/li.gif) no-repeat 0 0; line-height:1.8em;}
+ul.sb_menu li a:hover, ul.ex_menu li a:hover { color:#61a203; font-weight:bold; background:url(images/li_active.gif) no-repeat 0 0;}
+ul.sb_menu li { padding:4px 0;}
+ul.ex_menu li { padding:8px 0;}
+ul.sb_menu li a:hover { text-decoration:underline;}
+ul.ex_menu li a:hover { text-decoration:none;}
+
+/* subpages */
+.content .mainbar .comment { margin:0; padding:16px 0 0 0;}
+.content .mainbar .comment img.userpic { border:1px solid #dedede; margin:10px 16px 0 0; padding:0; float:left;}
+
+/* fbg */
+.fbg { margin:0; padding:0;}
+.fbg_resize img { border:1px solid #dedede;}
+.fbg_resize .col { margin:0; float:left;}
+.fbg_resize .c1 { padding:0 16px 0 0; width:290px;}
+.fbg_resize .c2 { padding:0 16px; width:290px;}
+.fbg_resize .c3 { padding:0 0 0 16px; width:240px;}
+.fbg_resize .c1 img { margin:8px 16px 16px 0; padding:0; float:left;}
+.fbg_resize .c3 img { margin:4px; padding:0;}
+
+/* footer */
+.footer { margin:0; padding:0;}
+.footer_resize {
+	margin:0 auto;
+	padding:8px 32px;
+	width:962px;
+	text-align: center;
+}
+.footer_resize p.lf {
+	float:none;
+	width:auto;
+	margin: 0px auto;
+}
+ul.fmenu { margin:8px 0; padding:0; list-style:none; float:right; width:auto;}
+ul.fmenu li { margin:0; padding:0 8px; float:left;}
+ul.fmenu li a { color:#5f5f5f; text-decoration:none;}
+ul.fmenu li a:hover, ul.fmenu li.active a { color:#61a203;}
+ul.fmenu li a:hover { text-decoration:underline;}
+
+/* form */
+form { margin:0; padding:0;}
+ol { margin:0; padding:0; list-style:none;}
+ol li { margin:0; padding:0; display:block; clear:both;}
+ol li label { display:block; margin:0; padding:16px 0 0 0;}
+ol li input.text { width:480px; border:1px solid #c0c0c0; margin:2px 0; padding:5px 2px; height:16px; background:#fff;}
+ol li textarea { width:480px; border:1px solid #c0c0c0; margin:2px 0; padding:2px; background:#fff;}
+ol li .send { margin:16px 0 0 0;}
