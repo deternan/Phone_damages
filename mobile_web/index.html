@@ -1,7 +1,7 @@
 <!--
 Author: Chao-Hsuan Ke
 Mail: phelpske.dev at gmail dot com
-Last updated: January 20, 2019 09:29 PM
+Last updated: April 11, 2019 08:34 PM
 -->
 <!DOCTYPE html>
 <html>
@@ -161,7 +161,7 @@ Last updated: January 20, 2019 09:29 PM
 		i = 0;
 		mandarin_twm[i++] = new contract("請選擇合約租期", 0, []);
 		mandarin_twm[i++] = new contract("24個月", 24, ["請選擇合約方案","4G上網綁約優惠(24)","4G平板上網資費(24)","行動上網月租型(24)","4G台灣好省(24)","3G行動上網月租型(24)","4G飆速方案(24)"]);
-		mandarin_twm[i++] = new contract("30個月", 30, ["請選擇合約方案","4G就是發","4G台灣好省(30)","4G上網綁約優惠(30)","3G行動上網月租型(30)"]);
+		mandarin_twm[i++] = new contract("30個月", 30, ["請選擇合約方案","4G就是發","4G台灣好省(30)","4G上網綁約優惠(30)","3G行動上網月租型(30)","學生好young(30)"]);
 		mandarin_twm[i++] = new contract("36個月", 36, ["請選擇合約方案","4G平板上網資費(36)","行動上網月租型(36)","4G飆速方案(36)"]);
 		j = 0;
 		twm_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
@@ -178,10 +178,11 @@ Last updated: January 20, 2019 09:29 PM
 		twm_contract[j++] = new fee("3G行動上網月租型(30)", 11, ["請選擇費率",699],[0,9000],[0,340]);
 		twm_contract[j++] = new fee("4G飆速方案(24)", 12, ["請選擇費率",199],[0,2500],[0,0]);
 		twm_contract[j++] = new fee("4G飆速方案(36)", 13, ["請選擇費率",199],[0,3500],[0,0]);
+		twm_contract[j++] = new fee("學生好young(30)", 14, ["請選擇費率",388,588],[0,7000,7500],[0,250,211]);
 		i = 0;
 		mandarin_fet[i++] = new contract("請選擇合約租期", 0, []);
 		mandarin_fet[i++] = new contract("24個月", 24, ["請選擇合約方案", "4G平板上網資費", "由中感謝(24)"]);
-		mandarin_fet[i++] = new contract("30個月", 30, ["請選擇合約方案", "4G 金好運","4.5 G學生專案", "4G上網綁約優惠", "4G新絕配(24)", "4G新絕配(30)", "由中感謝(30)"]);
+		mandarin_fet[i++] = new contract("30個月", 30, ["請選擇合約方案", "4G 金好運","4.5 G學生專案", "4G上網綁約優惠", "4G新絕配(24)", "4G新絕配(30)", "由中感謝(30)", "青春無價學生方案(30)","青春無價學生方案(30)新學期"]);
 		j = 0;
 		fet_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
 		fet_contract[j++] = new fee("4G 金好運", 1, ["請選擇費率",798,898],[0,9000,9000],[0,1,101]);
@@ -193,6 +194,7 @@ Last updated: January 20, 2019 09:29 PM
 		fet_contract[j++] = new fee("由中感謝(24)", 7, ["請選擇費率",398],[0,6500],[0,250]);
 		fet_contract[j++] = new fee("由中感謝(30)", 8, ["請選擇費率",398],[0,7000],[0,250]);
 		fet_contract[j++] = new fee("青春無價學生方案(30)", 9, ["請選擇費率",288,488,588],[0,8000,10000,12000],[0,250,250,250]);
+		fet_contract[j++] = new fee("青春無價學生方案(30)新學期", 10, ["請選擇費率",388,588,688],[0,8000,10000,12000],[0,0,250,250]);
 		i =0;
 		mandarin_gt[i++] = new contract("請選擇合約租期", 0, []);
 		mandarin_gt[i++] = new contract("24個月", 24, ["請選擇合約方案","GT 自由選24期"]);
