@@ -1,13 +1,12 @@
 
-#簡介
+簡介
+---
 
 讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少, 開發此一查詢服務讓大家可以直接查詢
 
 ## 版本
 <a href="http://www.phelps.top">網址</a>
 
-## 版本
-先開發此網頁版本, 日後再開發 APP
 
 ### 違約金計算方式
 
@@ -40,6 +39,8 @@
 日期相隔天數計算機 : [link](http://daybetween.0123456789.tw)
 
 ### History
+* May 08, 2019 Add Google Adsense
+* November 28, 2018 More than 2 Million users access the web service
 * November 10, 2018 Add domain name
 * June 04, 2017		Changed file from AWS to GitHub page
 * January 20, 2017	Revised penalty function & Finished mobile version
@@ -60,7 +61,7 @@ E-mail : phelpske.dev at gmail dot com
 ### Update
 每個月會更新一次各家的門號資訊
 
-Last updated: November 25, 2018 11:28 PM
+Last updated: July 03, 2019 11:41 PM
 
 
 
