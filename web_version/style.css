@@ -85,7 +85,7 @@ a { color:#61a203; text-decoration:none;}
 }
 .content .mainbar .article, .content .sidebar .gadget { margin:0; padding:0 0 16px 0; font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;}
 .content .sidebar { margin:0; padding:0; float:right; width:220px;}
-.content #damages_val { margin:0; padding:0 0 40px 0; color:#FF0000; font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;}
+.content #damages_val { margin:0; padding:0 0 8px 0; color:#FF0000; font-size: 36px; font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;}
 ul.sb_menu, ul.ex_menu { margin:0; padding:0; list-style:none;}
 ul.sb_menu li, ul.ex_menu li { margin:0; padding:0; border-bottom:1px dashed #e9e5e5;}
 ul.ex_menu li { color:#959595;}
