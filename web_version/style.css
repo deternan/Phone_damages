@@ -24,8 +24,7 @@ h1 {
 	margin:0;
 	padding:29px 0;
 	color:#fff;
-	font-family: "Courier New", Courier, monospace;
-	/*font-family: "cwTeXHei", sans-serif;*/
+	font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
 	font-size: 40px;
 	font-style: normal;
 	line-height: 1.2em;
