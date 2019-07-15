@@ -59,7 +59,7 @@ a { color:#61a203; text-decoration:none;}
 .header .logo { width:auto; float:left; font-family: "cwTeXHei", sans-serif;}
 .header .menu ul { margin:1px 0 0 0; padding:0; float:right; width:auto; list-style:none;}
 .header .menu ul li { margin:0; float:left;}
-.header .menu ul li a { margin:0; padding:12px 10px; color:#5f5f5f; text-decoration:none; line-height:36px;}
+.header .menu ul li a { margin:0; padding:12px 10px; color:#5f5f5f; text-decoration:none; line-height:36px;font-family: arial,"Microsoft JhengHei","微軟正黑體";}
 .header .menu ul li a span { margin:0; padding:12px 0 12px 10px;}
 .header .menu ul li a:hover, .header .menu ul li.active a { color:#fff; background:url(images/menu_r.gif) no-repeat right top;}
 .header .menu ul li a:hover span, .header .menu ul li.active a span { background:url(images/menu.gif) repeat-x top;}
@@ -83,8 +83,9 @@ a { color:#61a203; text-decoration:none;}
 	float:center;
 	width:auto;
 }
-.content .mainbar .article, .content .sidebar .gadget { margin:0; padding:0 0 16px 0;font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;}
+.content .mainbar .article, .content .sidebar .gadget { margin:0; padding:0 0 16px 0; font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;}
 .content .sidebar { margin:0; padding:0; float:right; width:220px;}
+.content #damages_val { margin:0; padding:0 0 40px 0; color:#FF0000; font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;}
 ul.sb_menu, ul.ex_menu { margin:0; padding:0; list-style:none;}
 ul.sb_menu li, ul.ex_menu li { margin:0; padding:0; border-bottom:1px dashed #e9e5e5;}
 ul.ex_menu li { color:#959595;}
