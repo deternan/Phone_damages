@@ -1,7 +1,7 @@
 <!--
 Author: Chao-Hsuan Ke
 Mail: phelpske.dev at gmail dot com
-Last updated: September 15, 2019 11:58 AM
+Last updated: September 15, 2019 03:58 PM
 -->
 <!DOCTYPE html>
 <html>
@@ -221,8 +221,8 @@ Last updated: September 15, 2019 11:58 AM
 		i = 0;
 		mandarin_tstar[i++] = new contract("請選擇合約租期", 0, []);
 		mandarin_tstar[i++] = new contract("12個月", 12, ["請選擇合約方案","4G 機不可失(12)","4G入門","保證最低價","U25-入門單門號方案(12)"]);
-		mandarin_tstar[i++] = new contract("24個月", 24, ["請選擇合約方案","4G 機不可失(24)","U25-入門單門號方案(24)","4G_勁速(24)","4G勁速2元(24)"]);
-		mandarin_tstar[i++] = new contract("30個月", 30, ["請選擇合約方案","4G 機不可失(30)","U25-入門單門號方案(30)","4G_勁速(30)","4G勁速2元(30)"]);		
+		mandarin_tstar[i++] = new contract("24個月", 24, ["請選擇合約方案","4G 機不可失(24)","U25-入門單門號方案(24)","4G_勁速(24)","4G勁速2元(24)","隨你講(24)"]);
+		mandarin_tstar[i++] = new contract("30個月", 30, ["請選擇合約方案","4G 機不可失(30)","U25-入門單門號方案(30)","4G_勁速(30)","4G勁速2元(30)","隨你講(30)"]);		
 		j = 0;
 		tstar_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
 		tstar_contract[j++] = new fee("4G 機不可失(12)", 1, ["請選擇費率",388],[0,2400],[0,100]);
@@ -237,6 +237,8 @@ Last updated: September 15, 2019 11:58 AM
 		tstar_contract[j++] = new fee("4G_勁速(30)", 10, ["請選擇費率",199,599,799,999,1199],[0,6000,10000,11000,14000,17000],[0,50,250,250,370,460]);
 		tstar_contract[j++] = new fee("4G勁速2元(24)", 11, ["請選擇費率",899,1099,1299],[0,10000,12000,14000],[0,399,519,609]);
 		tstar_contract[j++] = new fee("4G勁速2元(24)", 12, ["請選擇費率",899,1099,1299],[0,11000,14000,17000],[0,399,519,609]);
+		tstar_contract[j++] = new fee("隨你講(24)", 13, ["請選擇費率",488,688],[0,7000,9000],[0,250,250]);
+		tstar_contract[j++] = new fee("隨你講(30)", 14, ["請選擇費率",488,688],[0,9000,10000],[0,250,250]);
 		// 電信公司
 		var company = new Array();
 		var i=0;
