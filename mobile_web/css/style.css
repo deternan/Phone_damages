@@ -261,11 +261,13 @@ select.dropdown{
 	text-decoration:underline;
 }
 h4 {
-		font-size: 12px;
-	}
+	font-size: 12px;
+	text-align:center;
+}
 h4 a {
-		font-size: 12px;
-	}	
+	font-size: 12px;
+}	
+
 /****--responsive--****/
  @media (max-width:1440px){
 	.w3layouts p {
