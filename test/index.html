@@ -17,143 +17,13 @@ Last updated: February 03, 2020 11:59 AM
 h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
 body {font-family: "Open Sans"}
 </style>
-<body class="w3-light-grey">
 
-<!-- Navigation bar with social media icons -->
-<div class="w3-bar w3-black w3-hide-small">
-  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a>
-  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-instagram"></i></a>
-  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-snapchat"></i></a>
-  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-flickr"></i></a>
-  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-twitter"></i></a>
-  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
-</div>
-  
-<!-- w3-content defines a container for fixed size centered content, 
-and is wrapped around the whole page content, except for the footer in this example -->
-<div class="w3-content" style="max-width:1600px">
-
-  <!-- Header -->
+<!-- Header -->
   <header class="w3-container w3-center w3-padding-24 w3-white">
     <h1 class="w3-xxlarge"><b>門號解約金計算機</b></h1>
 	<h6>Phone penalty calculator</h6>
-  </header>
-
-  <!-- Image header -->
-  <header class="w3-display-container w3-wide" id="home">
-  </header>
-
-  <!-- Grid -->
-  <div class="w3-row w3-padding w3-border">
-
-    <!-- Blog entries -->
-    <div class="w3-col l8 s12">
-    
-      <!-- Blog entry -->
-      <div class="w3-container w3-white w3-margin w3-padding-large">
-        <div class="w3-justify">
-		  <table width="100%" border="0">
-                  <tr>
-                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">門號起始日期</div></h4></td>
-                    <td width="30%" align="right"><input type="date" id="datepicker_1"></td>
-                  </tr>                  
-                  <tr>
-                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">欲解約日期</div></h4></td>
-                    <td width="30%" align="right"><input type="date" id="datepicker_3"></td>
-                  </tr>                               
-                  <tr>
-                    <td><h4><div style="font-family:Microsoft JhengHei;">電信公司</div></h4></td>
-                    <td id="Select_Company" width="30%">                    
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><h4><div style="font-family:Microsoft JhengHei;">原合約長度</div></h4></td>
-                    <td id="Contract_month" width="30%">              
-                    </td>
-                  </tr> 
-                  <tr>
-                    <td><h4><div style="font-family:Microsoft JhengHei;">原合約名稱</div></h4></td>
-                    <td id="Contract_name" width="30%">              
-                    </td>
-                  </tr>
-                  <tr>
-                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">專案補貼款</div></h4></td>
-                    <td width="30%"><input id="Subsidy"></td>
-                  </tr> 
-                  <tr>
-                    <td  width="70%"><h4><div style="font-family:Microsoft JhengHei;">月租費</div></h4></td>
-                    <td id="Contract_rate" width="30%" align="right">              
-                    </td>
-                  </tr>                  
-                  <tr>
-                    <td width="70%"><h4><label id='damages_tag'>違約金總計為</label></h4></td>
-                    <td width="30%" align="right"><label class="style2" id='damages_val'>$</label>&nbsp;<label id='damages_unit'>元</label>
-                    </td>
-                  </tr> 
-                </table>
-		  </p>
-          <p class="w3-clear"></p>
-        </div>
-      </div>
-      <hr>
-   
-
-      <!-- Advertising -->
-      <div class="w3-white w3-margin">
-        <div class="w3-container w3-padding w3-black">
-          <h4>Advertise</h4>
-        </div>
-        <div class="w3-container w3-white">
-          <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:150px">
-            <span class="w3-display-middle">Your AD Here
-			<script>
-			// Google AdSense
-			(adsbygoogle = window.adsbygoogle || []).push({
-				google_ad_client: "ca-pub-3248373717625964",
-				enable_page_level_ads: true
-			});
-			</script>
-			</span>
-          </div>
-        </div>
-      </div>
-      <hr>
-
-	  <!-- Follow Me -->
-	  <!--
-      <div class="w3-white w3-margin">
-        <div class="w3-container w3-padding w3-black">
-          <h4>Follow Me</h4>
-        </div>
-        <div class="w3-container w3-xlarge w3-padding">
-          <i class="fa fa-facebook-official w3-hover-opacity"></i>
-          <i class="fa fa-instagram w3-hover-opacity"></i>
-          <i class="fa fa-snapchat w3-hover-opacity"></i>
-          <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-          <i class="fa fa-twitter w3-hover-opacity"></i>
-          <i class="fa fa-linkedin w3-hover-opacity"></i>
-        </div>
-      </div>
-      <hr>
-	  -->
-
-    <!-- END About/Intro Menu -->
-    </div>
-
-  <!-- END GRID -->
-  </div>
-
-<!-- END w3-content -->
-</div>
-
-
-<!-- Footer -->
-<footer class="w3-container w3-dark-grey" style="padding:12px">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
-
-<script>
+	
+	<script>
 // Toggle between hiding and showing blog replies/comments
 /*
 document.getElementById("myBtn").click();
@@ -410,7 +280,6 @@ function likeFunction(x) {
 	selectList_comapy = "<select class='Select_Company'>";
 	for (var i = 0; i < comapy_num.length; i++) 
 	{
-    	//<option name="12M" value="365">12 個月</option>
 		selectList_comapy += "<option name='"+comapy_num[i].name +"' value='"+comapy_num[i].value+"'>"+comapy_num[i].name+"</option>"+"\n";
 	}	
 	selectList_comapy += "</select>";
@@ -1023,6 +892,137 @@ function likeFunction(x) {
 });
 	
 </script>
+	
+  </header>
+
+<body class="w3-light-grey">
+
+<!-- Navigation bar with social media icons -->
+<div class="w3-bar w3-black w3-hide-small">
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-instagram"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-snapchat"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-flickr"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-twitter"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
+</div>
+  
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1600px">
+
+  <!-- Image header -->
+  <header class="w3-display-container w3-wide" id="home">
+  </header>
+
+  <!-- Grid -->
+  <div class="w3-row w3-padding w3-border">
+
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
+    
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-justify">
+		  <table width="100%" border="0">
+                  <tr>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">門號起始日期</div></h4></td>
+                    <td width="30%" align="right"><input type="date" id="datepicker_1"></td>
+                  </tr>                  
+                  <tr>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">欲解約日期</div></h4></td>
+                    <td width="30%" align="right"><input type="date" id="datepicker_3"></td>
+                  </tr>                               
+                  <tr>
+                    <td><h4><div style="font-family:Microsoft JhengHei;">電信公司</div></h4></td>
+                    <td id="Select_Company" width="30%"></td>
+                  </tr>
+                  <tr>
+                    <td><h4><div style="font-family:Microsoft JhengHei;">原合約長度</div></h4></td>
+                    <td id="Contract_month" width="30%">              
+                    </td>
+                  </tr> 
+                  <tr>
+                    <td><h4><div style="font-family:Microsoft JhengHei;">原合約名稱</div></h4></td>
+                    <td id="Contract_name" width="30%">              
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">專案補貼款</div></h4></td>
+                    <td width="30%"><input id="Subsidy"></td>
+                  </tr> 
+                  <tr>
+                    <td  width="70%"><h4><div style="font-family:Microsoft JhengHei;">月租費</div></h4></td>
+                    <td id="Contract_rate" width="30%" align="right">              
+                    </td>
+                  </tr>                  
+                  <tr>
+                    <td width="70%"><h4><label id='damages_tag'>違約金總計為</label></h4></td>
+                    <td width="30%" align="right"><label class="style2" id='damages_val'>$</label>&nbsp;<label id='damages_unit'>元</label>
+                    </td>
+                  </tr> 
+                </table>
+		  </p>
+          <p class="w3-clear"></p>
+        </div>
+      </div>
+      <hr>
+   
+
+      <!-- Advertising -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Advertise</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:150px">
+            <span class="w3-display-middle">Your AD Here
+			<script>
+			// Google AdSense
+			(adsbygoogle = window.adsbygoogle || []).push({
+				google_ad_client: "ca-pub-3248373717625964",
+				enable_page_level_ads: true
+			});
+			</script>
+			</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+	  <!-- Follow Me -->
+	  <!--
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Follow Me</h4>
+        </div>
+        <div class="w3-container w3-xlarge w3-padding">
+          <i class="fa fa-facebook-official w3-hover-opacity"></i>
+          <i class="fa fa-instagram w3-hover-opacity"></i>
+          <i class="fa fa-snapchat w3-hover-opacity"></i>
+          <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+          <i class="fa fa-twitter w3-hover-opacity"></i>
+          <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+      </div>
+      <hr>
+	  -->
+
+    <!-- END About/Intro Menu -->
+    </div>
+
+  <!-- END GRID -->
+  </div>
+
+<!-- END w3-content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey" style="padding:12px">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
 
 </body>
 </html>
