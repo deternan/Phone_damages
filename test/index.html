@@ -1,7 +1,7 @@
 ﻿<!--
 Author: Chao-Hsuan Ke
 Mail: phelpske.dev at gmail dot com
-Last updated: February 03, 2020 03:04 PM
+Last updated: February 03, 2020 03:18 PM
 -->
 
 <!DOCTYPE html>
@@ -14,8 +14,10 @@ Last updated: February 03, 2020 03:04 PM
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+<!--
 h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
 body {font-family: "Open Sans"}
+-->
 </style>
 
 <!-- Header -->
@@ -39,8 +41,16 @@ body {font-family: "Open Sans"}
   	ga('create', 'UA-90045865-1', 'auto');
   	ga('send', 'pageview');
 
+	
+</script>
+	
+  </header>
 
-	$(document).ready(function() {
+<body class="w3-light-grey">
+
+<script>
+    
+$(document).ready(function() {
 	
 		var mandarin_cht = new Array();
 		var mandarin_twm = new Array();
@@ -265,16 +275,14 @@ body {font-family: "Open Sans"}
 		
 	// HTML
 	// Add (Company)
-	/*
 	var selectList_comapy;
 	selectList_comapy = "<select class='Select_Company'>";
-	for (var i = 0; i < comapy_num.length; i++) 
+	for (var i=0; i<comapy_num.length; i++) 
 	{
 		selectList_comapy += "<option name='"+comapy_num[i].name +"' value='"+comapy_num[i].value+"'>"+comapy_num[i].name+"</option>"+"\n";
 	}	
 	selectList_comapy += "</select>";
 	$('#Select_Company').html(selectList_comapy);
-	*/
 	
 	// Add (Contract)(Month)
 	// Null
@@ -880,25 +888,7 @@ body {font-family: "Open Sans"}
 			alert(alert_str);
 		}		
 	
-});
-	
-</script>
-	
-  </header>
-
-<body class="w3-light-grey">
-
-<script>
-    // Add (Company)
-	var selectList_comapy;
-	selectList_comapy = "<select class='Select_Company'>";
-	for (var i = 0; i < comapy_num.length; i++) 
-	{
-		selectList_comapy += "<option name='"+comapy_num[i].name +"' value='"+comapy_num[i].value+"'>"+comapy_num[i].name+"</option>"+"\n";
-	}	
-	selectList_comapy += "</select>";
-	$('#Select_Company').html(selectList_comapy);
-	
+});	
 	
 </script>
 
@@ -976,6 +966,7 @@ and is wrapped around the whole page content, except for the footer in this exam
    
 
       <!-- Advertising -->
+	  <!--
       <div class="w3-white w3-margin">
         <div class="w3-container w3-padding w3-black">
           <h4>Advertise</h4>
@@ -995,6 +986,7 @@ and is wrapped around the whole page content, except for the footer in this exam
         </div>
       </div>
       <hr>
+	  -->
 
 	  <!-- Follow Me -->
 	  <!--
