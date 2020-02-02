@@ -141,7 +141,7 @@ function likeFunction(x) {
 		mandarin_cht[i++] = new contract("36個月", 36, ["請選擇合約方案", "4G智慧大玩家新方案 (6954)(36)","逗陣續約費率 (月繳88)"])
 		// contract_value
 		var j=0;		
-		cht_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);								// A_value 				// B_value		// C_value = Subsidy
+		cht_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
 		cht_contract[j++] = new fee("4G 699 精選(8083)", 1, ["請選擇費率",699],[0,7200],[0,100]);
 		cht_contract[j++] = new fee("4G 金好講 (8331)(24)", 2, ["請選擇費率",398],[0,6500],[0,1]);	
 		cht_contract[j++] = new fee("4G 金好講 (8331)(30)", 3, ["請選擇費率",398],[0,7000],[0,1]);	
@@ -935,22 +935,22 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <td width="30%" align="right"><input type="date" id="datepicker_3"></td>
                   </tr>                               
                   <tr>
-                    <td><h4><div style="font-family:Microsoft JhengHei;">電信公司</div></h4></td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">電信公司</div></h4></td>
                     <td id='Select_Company'></td>
                   </tr>
                   <tr>
-                    <td><h4><div style="font-family:Microsoft JhengHei;">原合約長度</div></h4></td>
-                    <td id="Contract_month" width="30%">              
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">原合約長度</div></h4></td>
+                    <td id="Contract_month">              
                     </td>
                   </tr> 
                   <tr>
-                    <td><h4><div style="font-family:Microsoft JhengHei;">原合約名稱</div></h4></td>
-                    <td id="Contract_name" width="30%">              
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">原合約名稱</div></h4></td>
+                    <td id="Contract_name">              
                     </td>
                   </tr>
                   <tr>
                     <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">專案補貼款</div></h4></td>
-                    <td width="30%"><input id="Subsidy"></td>
+                    <td width="30%"><input id="Subsidy" type="text" maxlength="7" size="7"></td>
                   </tr> 
                   <tr>
                     <td  width="70%"><h4><div style="font-family:Microsoft JhengHei;">月租費</div></h4></td>
@@ -1022,7 +1022,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey" style="padding:12px">
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-  <p> <h4>聯繫作者：<a href="https://www.linkedin.com/in/chao-hsuan-ke-543a2698/" target="_blank">Chao-Hsuan Ke</a></h4></p>
+  <p> <h5><div style="font-family:Microsoft JhengHei;">聯繫作者：<a href="https://www.linkedin.com/in/chao-hsuan-ke-543a2698/" target="_blank">Chao-Hsuan Ke</a></div></h5></p>
 </footer>
 
 </body>
