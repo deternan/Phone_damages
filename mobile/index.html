@@ -2,7 +2,7 @@
 Author: Chao-Hsuan Ke
 Mail: phelpske.dev at gmail dot com
 linkedin: https://www.linkedin.com/in/chao-hsuan-ke-543a2698
-Last updated: February 04, 2020 01:14 AM
+Last updated: February 04, 2020 06:36 PM
 -->
 
 <!DOCTYPE html>
@@ -53,14 +53,22 @@ body {font-family: "Open Sans"}
 		});
 		
 
-// Google Analytics
-  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  	ga('create', 'UA-90045865-1', 'auto');
-  	ga('send', 'pageview');
+	// Google Analytics
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-90045865-1', 'auto');
+		ga('send', 'pageview');
 
+	// Facebook(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		
 	
 	$(document).ready(function() {
 	
@@ -904,6 +912,13 @@ body {font-family: "Open Sans"}
 	
 </script>
 	
+<!-- Facebook Tag -->
+<meta property="og:url"   content="https://www.phelps.top/mobile" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="門號解約金計算機" />
+<meta property="og:description" content="讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少,藉由此計算機來幫助計算" />
+<meta property="og:image" content="https://phelps.top/images/calculator.png" />
+	
   </header>
 
 <body class="w3-light-grey">
@@ -1035,7 +1050,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey" style="padding:10px">
-   <p> <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-url="https://www.phelps.top/mobile/" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
+   <p> <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-url="https://www.phelps.top/mobile/" data-color="default" data-size="small" data-count="false" style="display: none;"></div> &nbsp; &nbsp; 
+   <div class="fb-share-button" data-href="https://phelps.top/mobile/" data-layout="button" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F52.199.217.21%2FPhone_damages%2Fweb_version&amp;src=sdkpreparse">Share</a></div>
    </p>
   <p> <h6><div style="font-family:Microsoft JhengHei;">聯繫作者：<a href="https://www.linkedin.com/in/chao-hsuan-ke-543a2698/" target="_blank">Chao-Hsuan Ke</a></div></h6></p>
   <h6><div style="font-family:Microsoft JhengHei;"><a href="https://medium.com/phelps-ke/phone-penalty-calculator-52b4c21a94bb" target="_blank">Medium</a></div></h6>
