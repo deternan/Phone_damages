@@ -2,7 +2,7 @@
 Author: Chao-Hsuan Ke
 Mail: phelpske.dev at gmail dot com
 linkedin: https://www.linkedin.com/in/chao-hsuan-ke-543a2698
-Last updated: February 04, 2020 06:36 PM
+Last updated: February 04, 2020 11:32 PM
 -->
 
 <!DOCTYPE html>
@@ -288,7 +288,8 @@ body {font-family: "Open Sans"}
 	var comapy_num = dataHierarchy();
 		
 	var company_index;
-	var contract_length_index;		var contract_totalday;
+	var contract_length_index;		
+	var contract_totalday;
 	var contract_name;
 	var contract_rate;
 	var contract_rate_index;
@@ -297,7 +298,7 @@ body {font-family: "Open Sans"}
 	// HTML
 	// Add (Company)
 	var selectList_comapy;
-	selectList_comapy = "<select class='Select_Company' width='90%' style='width: 90%' align='left'>";
+	selectList_comapy = "<select class='Select_Company' align='left'>";
 	for (var i=0; i<comapy_num.length; i++) 
 	{
 		selectList_comapy += "<option name='"+comapy_num[i].name +"' value='"+comapy_num[i].value+"'>"+comapy_num[i].name+"</option>"+"\n";
@@ -954,41 +955,40 @@ and is wrapped around the whole page content, except for the footer in this exam
       <!-- Blog entry -->
       <div class="w3-container w3-white w3-margin w3-padding-large">
         <div class="w3-justify">
-		  <table width="100%" border="0">
+		  <table width="100%" border="1">
                   <tr>
-                    <td width="60%"><h4><div style="font-family:Microsoft JhengHei;">門號起始日期</div></h4></td>
-                    <td width="40%" align="left"><input type="date" id="datepicker_1" width="100%"></td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">門號起始日</div></h4></td>
+                    <td align="left"><input style="width:80%"  type="date" id="datepicker_1">
+                    </td>
                   </tr>                  
                   <tr>
-                    <td width="60%"><h4><div style="font-family:Microsoft JhengHei;">欲解約日期</div></h4></td>
-                    <td width="40%" align="left"><input type="date" id="datepicker_3" width="100%"></td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">欲解約日期</div></h4></td>
+                    <td align="left"><input style="width:80%" type="date" id="datepicker_3"></td>
                   </tr>                               
                   <tr>
-                    <td width="60%"><h4><div style="font-family:Microsoft JhengHei;">電信公司</div></h4></td>
-                    <td id="Select_Company" width="40%" align="left"></td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">電信公司</div></h4></td>
+                    <td id="Select_Company" align="left"></td>
                   </tr>
                   <tr>
-                    <td width="50%"><h4><div style="font-family:Microsoft JhengHei;">原合約長度</div></h4></td>
-                    <td id='Contract_month' width="50%" align="left">              
-                    </td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">原合約長度</div></h4></td>
+                    <td id='Contract_month' align="left">  </td>
                   </tr> 
                   <tr>
-                    <td width="50%"><h4><div style="font-family:Microsoft JhengHei;">原合約名稱</div></h4></td>
-                    <td id="Contract_name" width="50%" align="left">              
-                    </td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">原合約名稱</div></h4></td>
+                    <td id="Contract_name" align="left"> </td>
                   </tr>
                   <tr>
-                    <td width="50%"><h4><div style="font-family:Microsoft JhengHei;">專案補貼款</div></h4></td>
-                    <td width="50%" align="left"><input id="Subsidy" type="text" maxlength="10" size="10"></td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">專案補貼款</div></h4></td>
+                    <td align="left"><input id="Subsidy" type="text" maxlength="10" size="10"></td>
                   </tr> 
                   <tr>
-                    <td  width="50%"><h4><div style="font-family:Microsoft JhengHei;">月租費</div></h4></td>
-                    <td id="Contract_rate" width="50%" align="left">        
+                    <td  width="70%"><h4><div style="font-family:Microsoft JhengHei;">月租費</div></h4></td>
+                    <td id="Contract_rate" align="left">        
                     </td>
                   </tr>                  
                   <tr>
-                    <td width="50%"><h4><label id='damages_tag'>違約金總計為</label></h4></td>
-                    <td width="50%" align="right"><label class="style2" id='damages_val'>$</label>&nbsp;<label id='damages_unit'>元</label>
+                    <td width="70%"><h4><label id='damages_tag'>違約金總計為</label></h4></td>
+                    <td style="width:80%" align="left"><label class="style2" id='damages_val'>$</label>&nbsp;<label id='damages_unit'>元</label>
                     </td>
                   </tr> 
                 </table>
