@@ -61,7 +61,15 @@ body {font-family: "Open Sans"}
 		ga('create', 'UA-90045865-1', 'auto');
 		ga('send', 'pageview');
 
-		
+	// Facebook
+		(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+  
 	
 	$(document).ready(function() {
 	
@@ -1047,13 +1055,6 @@ and is wrapped around the whole page content, except for the footer in this exam
    <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-url="https://phelps.top/mobile_web/" data-color="default" data-size="small" data-count="false" style="display: none;"></div> &nbsp; &nbsp; 
    <!-- Facebook -->
 	<div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
   <div class="fb-share-button" 
     data-href="https://phelps.top/mobile_web/" 
     data-layout="button">
