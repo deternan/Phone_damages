@@ -1,0 +1,975 @@
+<!--
+Author: Chao-Hsuan Ke
+Mail: phelpske.dev at gmail dot com
+Last updated: January 18, 2020 10:00 AM
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phone penalty calculator</title>
+	<link href="css/style.css" rel='stylesheet' type='text/css'/>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />		
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="js/skycons.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+	<script>
+	
+	// device check (PC or mobile)  
+  	var userAgentInfo = navigator.userAgent;
+	if(userAgentInfo.indexOf("Windows NT") >0){
+		window.location.replace("https://www.phelps.top");
+	}
+	
+	// mac detection
+	
+	
+	// Google AdSense
+	(adsbygoogle = window.adsbygoogle || []).push({
+    	google_ad_client: "ca-pub-3248373717625964",
+    	enable_page_level_ads: true
+  	});
+	
+	// Google Analytics
+  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  	ga('create', 'UA-90045865-1', 'auto');
+  	ga('send', 'pageview');
+	
+	
+	$(document).ready(function() {
+	
+		var mandarin_cht = new Array();
+		var mandarin_twm = new Array();
+		var mandarin_fet = new Array();
+		var mandarin_gt = new Array();
+		var mandarin_tstar = new Array();
+	
+		var cht_contract = new Array();
+		var twm_contract = new Array();
+		var fet_contract = new Array();
+		var gt_contract = new Array();
+		var tstar_contract = new Array();
+	
+		// Hidden
+		$("#damages_val").hide();
+		$("#damages_tag").hide();	
+		$("#damages_unit").hide();		
+		$("#Contract_month").hide();	
+		$("#Contract_name").hide();	
+		$("#Contract_rate").hide();
+	
+		var start_date;
+		var end_date;
+		var manually_date;
+		var contract_length;
+	
+		// Fee
+		var A_value;
+		var B_value;
+		var C_value;
+		var total_day;	// contract total day		
+		var end_manually;
+		var using_day;
+		var demages;
+	
+	if (!Modernizr.inputtypes.date) {	    
+        $('#datepicker_1').datetimepicker({
+            pickDate: true,
+            pickTime: false
+        });
+        
+		/*
+		$('#datepicker_2').datetimepicker({
+            pickDate: true,
+            pickTime: false
+        });
+		*/
+		
+		$('#datepicker_3').datetimepicker({
+            pickDate: true,
+            pickTime: false
+        });		    
+     }
+	
+	// Subsidy
+	$("#Subsidy").val("0");
+	
+	// Contract function	  // mandarin_cht	// cht_contract
+	function node(name, value, contract_name, contract_value){
+		this.name = name;
+		this.value = value;
+		this.contract_name = contract_name;
+		this.contract_value = contract_value;
+	}
+	
+	function contract(time_length_str, time_length_val, name){
+		this.time_length_str = time_length_str;
+		this.time_length_val = time_length_val;
+		this.name = name;
+	}
+	
+	function fee(name, index, fee, subsidy, preferential){
+		this.name = name;
+		this.index = index;
+		this.fee = fee;		
+		this.subsidy = subsidy;
+		this.preferential = preferential;
+	}
+	
+	function dataHierarchy(){
+		
+		// contract_name (CHT)
+		var i=0;
+		mandarin_cht[i++] = new contract("請選擇合約租期", 0, []);
+		mandarin_cht[i++] = new contract("24個月", 24, ["請選擇合約方案", "4G 金好講 (8331)(24)", "4G智慧大玩家新方案 (7317)","大4G 金省方案 (7266)", "大4G 金鑽方案 (7312)(24)", "大4G (新)優惠方案 (6890)", "大4G (新)優惠方案 (7695)","4G平板大玩家方案 (6038)(24)", "4G智慧大玩家新方案 (6954)(24)","4G月繳988(6379)(24)","4G學生優惠專案 (5327)(24)", "3G一般型資費方案 (5634)", "公教雙飽(8342)(24)", "4G一般型資費方案(24)"]);
+		mandarin_cht[i++] = new contract("30個月", 30, ["請選擇合約方案", "4G 699 精選(8083)","4G 金好講 (8331)(30)", "4G學生10分好講專案 (7316)","大4G 金省方案 (7266)", "大4G 金鑽方案 (7312)(30)", "大4G 大七喜 (7251)", "大4G (新)優惠方案 (6891)", "4G平板大玩家方案 (6038)(30)", "4G月繳988(6379)(30)","4G學生優惠專案 (5408)", "4G學生優惠專案 (5327)(30)", "3G 699 (6964)(30)", "4G學生10分好講(7313)","4G一般型資費方案(30)"]);
+		mandarin_cht[i++] = new contract("36個月", 36, ["請選擇合約方案", "4G智慧大玩家新方案 (6954)(36)","逗陣續約費率 (月繳88)"])
+		// contract_value
+		var j=0;		
+		cht_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);								// A_value 				// B_value		// C_value = Subsidy
+		cht_contract[j++] = new fee("4G 699 精選(8083)", 1, ["請選擇費率",699],[0,7200],[0,100]);
+		cht_contract[j++] = new fee("4G 金好講 (8331)(24)", 2, ["請選擇費率",398],[0,6500],[0,1]);	
+		cht_contract[j++] = new fee("4G 金好講 (8331)(30)", 3, ["請選擇費率",398],[0,7000],[0,1]);	
+		cht_contract[j++] = new fee("大4G 暢玩方案 (8113)", 4, ["請選擇費率",199,299,499,699,899,999,1199,1499,1799,2499],[0,3500,4000,6400,9000,12000,12800,15200,15200,15200,15200],[0,100,0,0,0,0,200,0,0,0,0]);		
+		cht_contract[j++] = new fee("4G智慧大玩家新方案 (7317)", 5, ["請選擇費率",399,599,799,999,1199, 1399],[0,4000,7000,9000,11000,13500,16500],[0,1,1,1,1,1,0]);		
+		cht_contract[j++] = new fee("4G學生10分好講專案 (7316)", 6, ["請選擇費率",589,789,989],[0,8000,10000,12000],[0,210,210,210]);		
+		cht_contract[j++] = new fee("大4G 金省方案 (7266)", 7, ["請選擇費率",398,598,798,998,1198],[0,3000,3000,4000,4000,4000],[0,1,1,1,1,1]);
+		cht_contract[j++] = new fee("大4G 金鑽方案 (7312)(24)", 8, ["請選擇費率",799,999,1199,1399,1799],[0,8500,11000,12000,16000,18000],[0,0,0,0,0,0]);
+		cht_contract[j++] = new fee("大4G 金鑽方案 (7312)(30)", 9, ["請選擇費率",799,999,1199,1399,1799],[0,10500,12500,13500,18000,21000],[0,0,0,0,0,0]);
+		cht_contract[j++] = new fee("大4G 大七喜 (7251)", 10, ["請選擇費率",777],[0,9500],[0,22]);
+		cht_contract[j++] = new fee("大4G (新)優惠方案 (6890)", 11, ["請選擇費率",359,469,579,799,999,1199,1399,1799],[0,3000,3500,4000,4000,5000,6000,6000,6000],[0,40,130,20,0,0,0,0,0]);
+		cht_contract[j++] = new fee("大4G (新)優惠方案 (6891)", 12, ["請選擇費率",359,469,579,799,999,1199,1399,1799],[0,5100,6700,8500,105000,13000,14800,18500,22500],[0,77,167,57,137,137,137,0,0]);
+		cht_contract[j++] = new fee("大4G (新)優惠方案 (7695)", 13, ["請選擇費率",299,399,599,799,999,1199,1399,1599,1799],[0,2200,3000,6000,8300,105000,11400,16000,17000,23300],[0,100,0,0,0,0,0,0,0,0]);
+		cht_contract[j++] = new fee("3G一般型資費方案 (5634)", 13, ["請選擇費率",183,383,583,983,1683],[0,2000,6500,7300,8200,8400],[0,0,0,0,0,0]);
+		cht_contract[j++] = new fee("4G平板大玩家方案 (6038)(24)", 14, ["請選擇費率",299,699,1199],[0,3700,6700,10700],[0,36,36,36]);
+		cht_contract[j++] = new fee("4G平板大玩家方案 (6038)(30)", 15, ["請選擇費率",299,699,1199],[0,4000,8800,11300],[0,36,36,36]);
+		cht_contract[j++] = new fee("4G智慧大玩家新方案 (6954)(24)", 16, ["請選擇費率",299,699,999,1199],[0,3300,7400,10800,12800],[0,100,100,0,0]);
+		cht_contract[j++] = new fee("4G智慧大玩家新方案 (6954)(36)", 17, ["請選擇費率",299,699,999,1199],[0,4200,10700,14200,15800],[0,100,100,0,0]);
+		cht_contract[j++] = new fee("4G月繳988(6379)(24)", 18, ["請選擇費率",988],[0,10000],[0,148]);	
+		cht_contract[j++] = new fee("4G月繳988(6379)(30)", 19, ["請選擇費率",988],[0,11000],[0,148]);	
+		cht_contract[j++] = new fee("4G學生優惠專案 (5408)", 20, ["請選擇費率",587,787,987],[0,7000,8500,9500],[0,349,349,349]);
+		cht_contract[j++] = new fee("4G學生優惠專案 (5327)(30)", 21, ["請選擇費率",687,887,1087],[0,6000,7500,9500],[0,249,249,249]);
+		cht_contract[j++] = new fee("4G學生優惠專案 (5327)(24)", 22, ["請選擇費率",687,887,1087],[0,8000,9500,11000],[0,249,249,249]);											
+		cht_contract[j++] = new fee("3G 699 (6964)(30)", 23, ["請選擇費率",699],[0,7000],[0,434]);
+		cht_contract[j++] = new fee("4G學生10分好講(7313)", 24, ["請選擇費率",589,789,989],[0,8000,10000,12000],[0,0,0,0]);
+		cht_contract[j++] = new fee("公教雙飽(8342)(24)", 25, ["請選擇費率",499],[0,5000],[0,100]);
+		cht_contract[j++] = new fee("4G一般型資費方案(24)", 26, ["請選擇費率",636,936,1136,1336,1736,2636],[0,6500,9500,10500,10500,12500,16500],[0,0,0,0,0,0,0]);
+		cht_contract[j++] = new fee("4G一般型資費方案(30)", 27, ["請選擇費率",636,936,1136,1336,1736,2636],[0,7000,1000,11000,11500,14000,28500],[0,0,0,0,0,0,0]);
+		cht_contract[j++] = new fee("逗陣續約費率 (月繳88)", 28, ["請選擇費率",88],[0,0],[0,111]);
+		// contract_name (CTWM)
+		i = 0;
+		mandarin_twm[i++] = new contract("請選擇合約租期", 0, []);
+		mandarin_twm[i++] = new contract("24個月", 24, ["請選擇合約方案","4G上網綁約優惠(24)","4G平板上網資費(24)","行動上網月租型(24)","4G台灣好省(24)","3G行動上網月租型(24)","4G飆速方案(24)"]);
+		mandarin_twm[i++] = new contract("30個月", 30, ["請選擇合約方案","4G就是發","4G台灣好省(30)","4G上網綁約優惠(30)","3G行動上網月租型(30)","4G飆速方案(30)","學生好young(30)"]);
+		mandarin_twm[i++] = new contract("36個月", 36, ["請選擇合約方案","4G平板上網資費(36)","行動上網月租型(36)"]);
+		j = 0;
+		twm_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
+		twm_contract[j++] = new fee("行動上網月租型(24)", 1, ["請選擇費率",699],[0,7000],[0,90]);
+		twm_contract[j++] = new fee("行動上網月租型(36)", 2, ["請選擇費率",699],[0,9000],[0,90]);
+		twm_contract[j++] = new fee("4G就是發", 3, ["請選擇費率",398],[0,7000],[0,0]);
+		twm_contract[j++] = new fee("4G台灣好省(24)", 4, ["請選擇費率",398],[0,6500],[0,0]);
+		twm_contract[j++] = new fee("4G台灣好省(30)", 5, ["請選擇費率",398],[0,7000],[0,0]);
+		twm_contract[j++] = new fee("4G上網綁約優惠(24)", 6, ["請選擇費率",399,599,799,999,1199,1399,1599,1899,2699],[0,5000,8000,9500,11000,14000,18000,19000,21000,29000],[0,250,250,250,250,250,250,250,250,250]);
+		twm_contract[j++] = new fee("4G上網綁約優惠(30)", 7, ["請選擇費率",399,599,799,999,1199,1399,1599,1899,2699],[0,6000,9000,10500,12000,15500,20000,21500,23500,33000],[0,250,250,250,250,250,250,250,250,250]);
+		twm_contract[j++] = new fee("4G平板上網資費(24)", 8, ["請選擇費率",299,499,699,899,1199,1499],[0,4500,6000,7000,10000,11000,14000],[0,0,0,0,0,0,0]);
+		twm_contract[j++] = new fee("4G平板上網資費(36)", 9, ["請選擇費率",299,499,699,899,1199,1499],[0,5500,7000,9000,13000,14000,18000],[0,0,0,0,0,0,0]);
+		twm_contract[j++] = new fee("3G行動上網月租型(24)", 10, ["請選擇費率",699],[0,7000],[0,340]);
+		twm_contract[j++] = new fee("3G行動上網月租型(30)", 11, ["請選擇費率",699],[0,9000],[0,340]);
+		twm_contract[j++] = new fee("4G飆速方案(24)", 12, ["請選擇費率",199,799,999,1199,1399,1599,1599,1899,2699],[0,1500,6500,10000,12000,18000,19000,21000,29000],[0,0,350,150,150,0,0,0,0]);
+		twm_contract[j++] = new fee("4G飆速方案(30)", 13, ["請選擇費率",199,799,999,1199,1399,1599,1899,2699],[0,2500,7500,12000,14000,20000,21500,23500,33000],[0,0,350,150,150,0,0,0,0]);
+		twm_contract[j++] = new fee("學生好young(30)", 14, ["請選擇費率",388,588],[0,7000,7500],[0,250,211]);
+		// contract_name (FET)
+		i = 0;
+		mandarin_fet[i++] = new contract("請選擇合約租期", 0, []);
+		mandarin_fet[i++] = new contract("24個月", 24, ["請選擇合約方案", "4G平板上網資費", "4G新絕配(24)", "由中感謝(24)"]);
+		mandarin_fet[i++] = new contract("30個月", 30, ["請選擇合約方案", "4G 金好運","4.5G學生專案", "4G上網綁約優惠", "4G新絕配(24)", "4G新絕配(30)", "由中感謝(30)", "青春無價學生方案(30)","青春無價學生方案(30)新學期", "新滿福堡(30)"]);
+		j = 0;
+		fet_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
+		fet_contract[j++] = new fee("4G 金好運", 1, ["請選擇費率",798,898],[0,9000,9000],[0,1,101]);
+		fet_contract[j++] = new fee("4G平板上網資費", 2, ["請選擇費率",199,399,599,799,999,1199,1799,2699],[0,0,4000,8000,10000,11000,14000,21000,26000],[0,0,0,0,0,0,0]);
+		fet_contract[j++] = new fee("4.5G學生專案", 3, ["請選擇費率",599,799,999],[0,9000,10000,12000],[0,0,0,0]);
+		fet_contract[j++] = new fee("4G上網綁約優惠", 4, ["請選擇費率",399,599,799,999,1199,1399,1799,2699],[0,5000,9000,11000,12000,15000,19000,22000,27000],[0,0,0,0,0,0,0,0,0]);
+		fet_contract[j++] = new fee("4G新絕配(24)", 5, ["請選擇費率",399,599,799,999,1199,1399],[0,5000,10000,11000,11000,14000,18000],[0,250,250,250,250,250,250]);
+		fet_contract[j++] = new fee("4G新絕配(30)", 6, ["請選擇費率",599,799,999,1199,1399,1799,2699],[0,9000,11000,12000,15000,19000,22000,27000],[0,0,0,0,0,0,0,0]);		
+		fet_contract[j++] = new fee("由中感謝(24)", 7, ["請選擇費率",398],[0,6500],[0,250]);
+		fet_contract[j++] = new fee("由中感謝(30)", 8, ["請選擇費率",398],[0,7000],[0,250]);
+		fet_contract[j++] = new fee("青春無價學生方案(30)", 9, ["請選擇費率",288,488,588],[0,8000,10000,12000],[0,250,250,250]);
+		fet_contract[j++] = new fee("青春無價學生方案(30)新學期", 10, ["請選擇費率",388,588,688],[0,8000,10000,12000],[0,0,250,250]);
+		fet_contract[j++] = new fee("新滿福堡(30)", 11, ["請選擇費率",698,999,1399],[0,7500,12000,20000],[0,250,250,250]);
+		// contract_name (GT)
+		i =0;
+		mandarin_gt[i++] = new contract("請選擇合約租期", 0, []);
+		mandarin_gt[i++] = new contract("18個月", 18, ["請選擇合約方案", "新戶199"]);
+		mandarin_gt[i++] = new contract("24個月", 24, ["請選擇合約方案", "GT 自由選24期", "全國壹網打勁"]);
+		mandarin_gt[i++] = new contract("30個月", 30, ["請選擇合約方案", "999 吃到飽", "598 吃到飽", "全國悠遊網Gt30期專案", "全國壹大網", "全國壹大網進階版", "壹起省"]);
+		j =0;
+		gt_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
+		gt_contract[j++] = new fee("999 吃到飽", 1, ["請選擇費率",999],[0,9200],[0,0]);
+		gt_contract[j++] = new fee("999 吃到飽", 2, ["請選擇費率",598],[0,11000],[0,0]);
+		gt_contract[j++] = new fee("GT 自由選24期", 3, ["請選擇費率",898,1098,1398,1598,1798,2098,2598],[0,11500,15500,19000,20000,22000,23000,27000],[0,0,0,0,0,0,0,0]);
+		gt_contract[j++] = new fee("全國悠遊網Gt30期專案", 4, ["請選擇費率",498,598,698,898,1098,1398,1598,1798,1998,2598],[0,9200,10000,10700,12500,15500,19000,20000,22000,23000,27000],[0,0,0,0,0,0,0,0,0,0,0]);
+		gt_contract[j++] = new fee("全國壹大網", 5, ["請選擇費率",399,699,999,1299,1599],[0,8000,11000,15000,18000,19000],[0,0,0,0,0,0]);		
+		gt_contract[j++] = new fee("全國壹大網進階版", 6, ["請選擇費率",399,699,999],[0,8500,12000,16500],[0,20,20,20]);
+		gt_contract[j++] = new fee("全國壹網打勁", 7, ["請選擇費率",296,396,496,596,796,996,1196,1396],[0,2400,3600,4800,8000,12000,14000,16000,18000],[0,0,0,0,0,0,0,0,0]);
+		gt_contract[j++] = new fee("新戶199", 8, ["請選擇費率",199],[0,3600],[0,0]);
+		gt_contract[j++] = new fee("壹起省", 9, ["請選擇費率",396,566,756,916,1076,1256],[0,5000,8000,12000,12000,15000,20000],[0,250,250,250,250,250,250]);
+		// contract_name (Taiwan Star)
+		i = 0;
+		mandarin_tstar[i++] = new contract("請選擇合約租期", 0, []);
+		mandarin_tstar[i++] = new contract("12個月", 12, ["請選擇合約方案","4G 機不可失(12)","4G入門","保證最低價","U25-入門單門號方案(12)"]);
+		mandarin_tstar[i++] = new contract("24個月", 24, ["請選擇合約方案","4G 機不可失(24)","U25-入門單門號方案(24)","4G_勁速(24)","4G勁速2元(24)","隨你講(24)"]);
+		mandarin_tstar[i++] = new contract("30個月", 30, ["請選擇合約方案","4G 機不可失(30)","U25-入門單門號方案(30)","4G_勁速(30)","4G勁速2元(30)","隨你講(30)","4G勁速_雙11_188隨你講(30)"]);		
+		j = 0;
+		tstar_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
+		tstar_contract[j++] = new fee("4G 機不可失(12)", 1, ["請選擇費率",388],[0,2400],[0,100]);
+		tstar_contract[j++] = new fee("4G 機不可失(24)", 2, ["請選擇費率",388],[0,6000],[0,100]);
+		tstar_contract[j++] = new fee("4G 機不可失(39)", 3, ["請選擇費率",388],[0,8000],[0,100]);		
+		tstar_contract[j++] = new fee("4G入門", 4, ["請選擇費率",88,188,288,488],[0,1200,1200,1800,2400],[0,0,0,0,0]);
+		tstar_contract[j++] = new fee("保證最低價", 5, ["請選擇費率",188,288,388,488,588,688,788,888,988],[0,2400,2400,2400,2400,2400,2400,2400,2400,2400],[0,0,0,0,0,0,0,0,0,0]);
+		tstar_contract[j++] = new fee("U25-入門單門號方案(12)", 6, ["請選擇費率",388],[0,2400],[0,0]);
+		tstar_contract[j++] = new fee("U25-入門單門號方案(24)", 7, ["請選擇費率",599,699],[0,9000,9000],[0,250,399]);
+		tstar_contract[j++] = new fee("U25-入門單門號方案(30)", 8, ["請選擇費率",388,599,699],[0,8000,10000,10000],[0,499,250,399]);
+		tstar_contract[j++] = new fee("4G_勁速(24)", 9, ["請選擇費率",199,599,699,799,999,1199],[0,4000,9000,9000,10000,12000,14000],[0,50,250,250,250,370,460]);
+		tstar_contract[j++] = new fee("4G_勁速(30)", 10, ["請選擇費率",199,599,699,799,999,1199],[0,6000,10000,10000,11000,14000,17000],[0,50,250,250,250,370,460]);
+		tstar_contract[j++] = new fee("4G勁速2元(24)", 11, ["請選擇費率",899,1099,1299],[0,10000,12000,14000],[0,399,519,609]);
+		tstar_contract[j++] = new fee("4G勁速2元(24)", 12, ["請選擇費率",899,1099,1299],[0,11000,14000,17000],[0,399,519,609]);
+		tstar_contract[j++] = new fee("隨你講(24)", 13, ["請選擇費率",488,688],[0,7000,9000],[0,250,250]);
+		tstar_contract[j++] = new fee("隨你講(30)", 14, ["請選擇費率",488,688],[0,9000,10000],[0,250,250]);
+		tstar_contract[j++] = new fee("4G勁速_雙11_188隨你講(30)", 15, ["請選擇費率",188],[0,4800],[0,311]);
+		// 電信公司
+		var company = new Array();
+		var i=0;
+		company[i++] = new node("選擇電信商", 0, "null");			
+		company[i++] = new node("中華電信", 1, mandarin_cht, cht_contract);			
+		company[i++] = new node("台灣大哥大", 2, mandarin_twm, twm_contract);
+		company[i++] = new node("遠傳電信", 3, mandarin_fet, fet_contract);
+		company[i++] = new node("亞太電信", 4, mandarin_gt, gt_contract);
+		company[i++] = new node("台灣之星", 5, mandarin_tstar, tstar_contract);
+		
+		return(company);
+	}
+	
+	
+	var comapy_num = dataHierarchy();
+		
+	var company_index;
+	var contract_length_index;		var contract_totalday;
+	var contract_name;
+	var contract_rate;
+	var contract_rate_index;
+	// -----------------------------------------------------------------------
+		
+	// HTML
+	// Add (Company)
+	var selectList_comapy;
+	selectList_comapy = "<select class='Select_Company'>";
+	for (var i = 0; i < comapy_num.length; i++) 
+	{
+    	//<option name="12M" value="365">12 個月</option>
+		selectList_comapy += "<option name='"+comapy_num[i].name +"' value='"+comapy_num[i].value+"'>"+comapy_num[i].name+"</option>"+"\n";
+	}	
+	selectList_comapy += "</select>";
+	$('#Select_Company').html(selectList_comapy);
+	
+	// Add (Contract)(Month)
+	// Null
+	function Null_contract_month(){
+		var contarct_null;
+		contarct_null = "<select class='Contract_month'>";
+		//for (var i = 0; i < mandarin_cht.length; i++) 
+		{    	
+			contarct_null += "<option name='"+mandarin_cht[0].time_length_str +"' value='"+mandarin_cht[0].time_length_val+"'>"+mandarin_cht[0].time_length_str+"</option>"+"\n";
+		}	
+		contarct_null += "</select>";
+		$('#Contract_month').html(contarct_null);
+	}
+	// CHT
+	function CHT_contract_month(){
+		var contarct_cht;
+		contarct_cht = "<select class='Contract_month'>";
+		for (var i = 0; i < mandarin_cht.length; i++) 
+		{    	
+			contarct_cht += "<option name='"+mandarin_cht[i].time_length_str +"' value='"+mandarin_cht[i].time_length_val+"'>"+mandarin_cht[i].time_length_str+"</option>"+"\n";
+		}	
+		contarct_cht += "</select>";
+		$('#Contract_month').html(contarct_cht);
+	}	
+	// TWM
+	function TWM_contract_month(){
+		var contarct_twm;
+		contarct_twm = "<select class='Contract_month'>";
+		for (var i = 0; i < mandarin_twm.length; i++) 
+		{    	
+			contarct_twm += "<option name='"+mandarin_twm[i].time_length_str +"' value='"+mandarin_twm[i].time_length_val+"'>"+mandarin_twm[i].time_length_str+"</option>"+"\n";
+		}
+		contarct_twm += "</select>";
+		$('#Contract_month').html(contarct_twm);	
+	}	
+	// FET
+	function FET_contract_month(){
+		var contarct_fet;
+		contarct_fet = "<select class='Contract_month'>";
+		for (var i = 0; i < mandarin_fet.length; i++) 
+		{    	
+			contarct_fet += "<option name='"+mandarin_fet[i].time_length_str +"' value='"+mandarin_fet[i].time_length_val+"'>"+mandarin_fet[i].time_length_str+"</option>"+"\n";
+		}
+		contarct_fet += "</select>";
+		$('#Contract_month').html(contarct_fet);	
+	}	
+	// GT
+	function GT_contract_month(){
+		var contarct_gt;
+		contarct_gt = "<select class='Contract_month'>";
+		for (var i = 0; i < mandarin_gt.length; i++) 
+		{    	
+			contarct_gt += "<option name='"+mandarin_gt[i].time_length_str +"' value='"+mandarin_gt[i].time_length_val+"'>"+mandarin_gt[i].time_length_str+"</option>"+"\n";
+		}
+		contarct_gt += "</select>";
+		$('#Contract_month').html(contarct_gt);	
+	}	
+	// Tstart
+	function TSTAR_contract_month(){
+		var contarct_tstart;
+		contarct_tstar = "<select class='Contract_month'>";
+		for (var i = 0; i < mandarin_tstar.length; i++) 
+		{    	
+			contarct_tstar += "<option name='"+mandarin_tstar[i].time_length_str +"' value='"+mandarin_tstar[i].time_length_val+"'>"+mandarin_tstar[i].time_length_str+"</option>"+"\n";
+		}
+		contarct_tstar += "</select>";
+		$('#Contract_month').html(contarct_tstar);	
+	}
+	
+	// Add (Contract)(Name)
+	// Null	
+	function Null_contract_name(){
+		var contract_null;				
+		contarct_null = "<select class='Contract_name'>";		
+		contarct_null += "<option name='"+cht_contract[0].name+"' value='"+cht_contract[0].index+"'>"+cht_contract[0].name+"</option>"+"\n";	
+		contarct_null += "</select>";
+		$('#Contract_name').html(contarct_null);
+	}
+	
+	// CHT
+	function CHT_contract_name(length){
+		var contract_cht;
+		var temp_array = new Array();
+		for(var i=0; i<mandarin_cht.length; i++)
+		{
+			if(mandarin_cht[i].time_length_val === length){
+				temp_array = mandarin_cht[i].name;
+			}
+		}				
+		contarct_cht = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			contarct_cht += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		contarct_cht += "</select>";
+		$('#Contract_name').html(contarct_cht);		
+	}
+	
+	// TWM
+	function TWM_contract_name(length){
+		var contract_twm;
+		var temp_array = new Array();
+		for(var i=0; i<mandarin_twm.length; i++)
+		{
+			if(mandarin_twm[i].time_length_val === length){
+				temp_array = mandarin_twm[i].name;
+			}
+		}				
+		contarct_twm = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			contarct_twm += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		contarct_twm += "</select>";
+		$('#Contract_name').html(contarct_twm);
+	}
+	
+	// FET
+	function FET_contract_name(length){
+		var contract_fet;
+		var temp_array = new Array();
+		for(var i=0; i<mandarin_fet.length; i++)
+		{
+			if(mandarin_fet[i].time_length_val === length){
+				temp_array = mandarin_fet[i].name;
+			}
+		}				
+		contarct_fet = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			contarct_fet += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		contarct_fet += "</select>";
+		$('#Contract_name').html(contarct_fet);
+	}
+	
+	// GT
+	function GT_contract_name(length){
+		var contract_gt;
+		var temp_array = new Array();
+		for(var i=0; i<mandarin_gt.length; i++)
+		{
+			if(mandarin_gt[i].time_length_val === length){
+				temp_array = mandarin_gt[i].name;
+			}
+		}				
+		contarct_gt = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			contarct_gt += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		contarct_gt += "</select>";
+		$('#Contract_name').html(contarct_gt);
+	}
+	
+	// Tstar
+	function TSTAR_contract_name(length){		
+		var contract_tstar;
+		var temp_array = new Array();
+		for(var i=0; i<mandarin_tstar.length; i++)
+		{
+			if(mandarin_tstar[i].time_length_val === length){
+				temp_array = mandarin_tstar[i].name;
+			}
+		}				
+		contarct_tstar = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			contarct_tstar += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		contarct_tstar += "</select>";
+		$('#Contract_name').html(contarct_tstar);
+	}
+	
+	// Add (Contract)(Name)
+	function Null_contract_rate(){
+		var rate_null;				
+		rate_null = "<select class='Contract_rate'>";		
+		rate_null += "<option name='"+cht_contract[0].fee[0]+"' value='"+cht_contract[0].fee[0]+"'>"+cht_contract[0].fee[0]+"</option>"+"\n";	
+		rate_null += "</select>";
+		$('#Contract_rate').html(rate_null);
+	}
+	
+	// CHT
+	function CHT_contract_rate(){
+		var rate_cht;				
+		rate_cht = "<select class='Contract_rate'>";		
+		var temp_array = new Array();
+		for(var i=0; i<cht_contract.length; i++)
+		{
+			if(cht_contract[i].name === contract_name){
+				temp_array = cht_contract[i].fee;
+			}
+		}		
+		rate_cht = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			rate_cht += "<option name='"+temp_array[i]+"' value='"+temp_array[i]+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		rate_cht += "</select>";
+		$('#Contract_rate').html(rate_cht);	
+	}
+	// TWM
+	function TWM_contract_rate(){
+		var rate_twm;				
+		rate_twm = "<select class='Contract_rate'>";		
+		var temp_array = new Array();
+		for(var i=0; i<twm_contract.length; i++)
+		{
+			if(twm_contract[i].name === contract_name){
+				temp_array = twm_contract[i].fee;
+			}
+		}		
+		rate_twm = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			rate_twm += "<option name='"+temp_array[i]+"' value='"+temp_array[i]+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		rate_twm += "</select>";
+		$('#Contract_rate').html(rate_twm);	
+	}
+	
+	// FET
+	function FET_contract_rate(){
+		var rate_fet;				
+		rate_fet = "<select class='Contract_rate'>";		
+		var temp_array = new Array();
+		for(var i=0; i<fet_contract.length; i++)
+		{
+			if(fet_contract[i].name === contract_name){
+				temp_array = fet_contract[i].fee;
+			}
+		}		
+		rate_fet = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			rate_fet += "<option name='"+temp_array[i]+"' value='"+temp_array[i]+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		rate_fet += "</select>";
+		$('#Contract_rate').html(rate_fet);	
+	}
+	
+	// GT
+	function GT_contract_rate(){
+		var rate_gt;				
+		rate_gt = "<select class='Contract_rate'>";		
+		var temp_array = new Array();
+		for(var i=0; i<gt_contract.length; i++)
+		{
+			if(gt_contract[i].name === contract_name){
+				temp_array = gt_contract[i].fee;
+			}
+		}		
+		rate_gt = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			rate_gt += "<option name='"+temp_array[i]+"' value='"+temp_array[i]+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		rate_gt += "</select>";
+		$('#Contract_rate').html(rate_gt);	
+	}
+	
+	// Tstar
+	function TSTAR_contract_rate(){
+		var rate_tstar;				
+		rate_tstar = "<select class='Contract_rate'>";		
+		var temp_array = new Array();
+		for(var i=0; i<tstar_contract.length; i++)
+		{
+			if(tstar_contract[i].name === contract_name){
+				temp_array = tstar_contract[i].fee;
+			}
+		}		
+		rate_tstar = "<select class='Contract_name'>";
+		for (var i=0; i<temp_array.length; i++) 
+		{    	
+			rate_tstar += "<option name='"+temp_array[i]+"' value='"+temp_array[i]+"'>"+temp_array[i]+"</option>"+"\n";
+		}	
+		rate_tstar += "</select>";
+		$('#Contract_rate').html(rate_tstar);	
+	}	
+	
+	// ---------------------------------------------------------------------------------------------------------------
+
+		// Telco Company (Create)
+		var select_company_value;
+		$("#Select_Company").change(function(){	
+		select_company_value = $("#Select_Company option:selected" ).val();
+
+	 	if(select_company_value === "0"){    		
+			Null_contract_month();
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_month").hide();
+			$("#Contract_name").hide();
+			$("#Contract_rate").hide();
+  	 	}else if(select_company_value === "1"){
+			if(manually_date == null){
+				alert("須先設定欲解約日期");
+			}
+   			//console.log("中華電信");
+			$('#Contract_month').html(mandarin_cht[0].time_length_str);
+			company_index = 1;
+			CHT_contract_month();
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_month").show();
+  	 	}else if(select_company_value === "2"){
+			if(manually_date == null){
+				alert("須先設定欲解約日期");
+			}
+   			//console.log("台灣大哥大");
+			$('#Contract_month').html(mandarin_twm[0].time_length_str);
+			company_index = 2;
+			TWM_contract_month();
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_month").show();
+  	 	}else if(select_company_value === "3"){
+			if(manually_date == null){
+				alert("須先設定欲解約日期");
+			}
+   			//console.log("遠傳電信");
+			$('#Contract_month').html(mandarin_fet[0].time_length_str);
+			company_index = 3;
+			FET_contract_month();
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_month").show();
+  	 	}else if(select_company_value === "4"){
+			if(manually_date == null){
+				alert("須先設定欲解約日期");
+			}
+   			//console.log("亞太電信");
+			$('#Contract_month').html(mandarin_gt[0].time_length_str);
+			company_index = 4;
+			GT_contract_month();
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_month").show();  	 	
+		}else if(select_company_value === "5"){
+			if(manually_date == null){
+				alert("須先設定欲解約日期");
+			}
+   			//console.log("台灣之星");
+			$('#Contract_month').html(mandarin_tstar[0].time_length_str);
+			company_index = 5;
+			TSTAR_contract_month();
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_month").show();
+  	 	} 
+    	});
+	
+		// Contract month (Create)
+		var select_contract_length;
+		$("#Contract_month").change(function(){
+		select_contract_length = $("#Contract_month option:selected" ).val();
+			
+		if(select_contract_length === "0"){
+			//$('#Contract_name').html(cht_contract[0].name);
+			Null_contract_name();
+			$("#Contract_name").hide();
+			$("#Contract_rate").hide();
+		}else if(select_contract_length === "12"){
+			contract_length_index = 12;
+			contract_totalday = 365;
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_name").show();
+			switch(company_index)
+			{
+				case 1:					
+					CHT_contract_name(12);					
+				break;
+				case 2:					
+					TWM_contract_name(12);
+				break;				
+				case 3:
+					FET_contract_name(12);
+				break;
+				case 4:
+					GT_contract_name(12);
+				break;
+				case 5:
+					TSTAR_contract_name(12);
+				break;				
+			}			
+		}else if(select_contract_length === "24"){
+			contract_length_index = 24;
+			contract_totalday = 730;
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_name").show();
+			switch(company_index)
+			{
+				case 1:										
+					CHT_contract_name(24);
+				break;
+				case 2:					
+					TWM_contract_name(24);
+				break;				
+				case 3:
+					FET_contract_name(24);
+				break;
+				case 4:
+					GT_contract_name(24);
+				break;
+				case 5:
+					TSTAR_contract_name(24);
+				break;	
+			}
+		}else if(select_contract_length === "30"){
+			contract_length_index = 30;
+			contract_totalday = 912;
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_name").show();
+			switch(company_index)
+			{
+				case 1:										
+					CHT_contract_name(30);					
+				break;
+				case 2:					
+					TWM_contract_name(30);
+				break;				
+				case 3:
+					FET_contract_name(30);
+				break;
+				case 4:
+					GT_contract_name(30);
+				break;
+				case 5:
+					TSTAR_contract_name(30);
+				break;	
+			}
+		}else if(select_contract_length === "36"){
+			contract_length_index = 36;
+			contract_totalday = 1095;
+			Null_contract_name();
+			Null_contract_rate();
+			$("#Contract_name").show();
+			switch(company_index)
+			{
+				case 1:										
+					CHT_contract_name(36);
+				break;
+				case 2:					
+					TWM_contract_name(36);
+				break;				
+				case 3:
+					FET_contract_name(36);
+				break;
+				case 4:
+					GT_contract_name(36);
+				break;
+				case 5:
+					TSTAR_contract_name(36);
+				break;	
+			}
+		}
+		
+		});
+	
+		// Contract rate (Create)
+		$("#Contract_name").change(function(){			
+			contract_name = $("#Contract_name option:selected").text();
+			
+			if(contract_name === "0"){
+				Null_contract_rate();			
+				$("#Contract_rate").hide();
+			}else{
+				//console.log(contract_name);
+				$("#Contract_rate").show();
+				switch(company_index)
+				{
+					case 1:					
+						CHT_contract_rate();
+					break;
+					case 2:					
+						TWM_contract_rate();			
+					break;				
+					case 3:
+						FET_contract_rate();			
+					break;
+					case 4:
+						GT_contract_rate();			
+					break;
+					case 5:
+						TSTAR_contract_rate();			
+					break;
+				}	
+			}				
+		});
+		
+
+		// Star date
+		$("#datepicker_1").change(function(){
+			start_date = document.getElementById('datepicker_1').value;		
+		});
+		
+		// Manually_date		
+		$("#datepicker_3").change(function(){
+			if(start_date == null){
+				alert("須先設定合約起始日期");				
+				$('#datepicker_3').val("");
+			}
+			manually_date = document.getElementById('datepicker_3').value;
+			var date_gap_M = DateDifference(start_date, manually_date);			
+			if(date_gap_M <= 0){
+				alert("欲解約日期不得早於合約起始日期");
+				$('#datepicker_3').val("");				
+			}
+		});
+		
+		
+		// Day gap
+		function DateDifference(StartDate, EndDate)
+		{
+   			var myStartDate = new Date(StartDate);
+   			var myEndDate = new Date(EndDate);
+   		
+     		return (myEndDate - myStartDate)/86400000 ;
+		}	
+		
+		//  Contract rate (Change) --> Calculator
+		$("#Contract_rate").change(function(){
+			contract_rate = $("#Contract_rate option:selected").text();			
+			contract_rate_index = $("#Contract_rate option:selected").index();			
+			if(start_date == null){
+				alert("須設定合約起始日期");
+			}
+			
+			if(manually_date == null){
+				alert("須設定欲解約日期");
+			}
+			if((start_date!=null)&&(manually_date!=null)){				
+				Get_AllValue();				
+				Calculator();
+			}				
+		});
+		
+		function Get_AllValue(){
+			for(var i=0;i<comapy_num[company_index].contract_value.length;i++)
+			{
+				if(comapy_num[company_index].contract_value[i].name === contract_name){
+					A_value = comapy_num[company_index].contract_value[i].subsidy[contract_rate_index];
+					B_value = comapy_num[company_index].contract_value[i].preferential[contract_rate_index];
+					C_value = $("#Subsidy").val();
+					total_day = contract_totalday;
+						
+					//
+					var d_parts = manually_date.split('-');
+					var manually_date_temp = new Date(d_parts[0],d_parts[1]-1,d_parts[2]);
+						
+					var d_parts = start_date.split('-');				
+					var temp_day = new Date(d_parts[0],d_parts[1]-1,d_parts[2]);					
+				    temp_day.setDate(temp_day.getDate() + parseInt(contract_totalday));
+					end_date = temp_day;					
+					
+					end_manually = DateDifference(manually_date_temp,end_date);					
+					
+					if(end_manually < 0){
+						alert("提前解約日期不得超過合約終止日期");
+					}else{
+						using_day = total_day - end_manually;										
+						break;
+					}
+				}
+			}
+		}
+		
+		// Calculator
+		function Calculator()
+		{
+			//[((36/30) * (730-240))+6700+1000] * (224/730) = NT 2543
+			var temp  = ((B_value / 30) * (using_day)) + parseFloat(A_value) + parseFloat(C_value);
+			demages = temp * (end_manually / total_day);			
+			
+			Call_alert();
+		}
+		
+		function Call_alert()
+		{
+			var d_parts = start_date.split('-');				
+			var year_s = d_parts[0];
+			var month_s = d_parts[1];
+			var day_s = d_parts[2];
+			
+			var year_e = end_date.getFullYear();
+			var month_e = end_date.getMonth()+1;
+			var day_e = end_date.getDay();
+			
+			d_parts = manually_date.split('-');
+			var year_m = d_parts[0];
+			var month_m = d_parts[1];
+			var day_m = d_parts[2];
+			
+			var alert_str = "合約從"+year_s+"年"+month_s+"月"+day_s+"日至"+year_e+"年"+month_e+"月"+day_e+"日" + "\n";
+			alert_str += "若於" +year_m+"年"+month_m+"月"+day_m+"日提前解約" +"\n";
+			alert_str += "解約金為" + parseInt(demages) +"元";
+			//console.log(alert_str);
+			alert(alert_str);
+		}		
+	
+});
+	
+    </script>
+    <style type="text/css">	
+	.style2 {
+		color: #FF0000;
+		font-size: xx-large;
+	}
+	</style>
+    
+</head>
+<body>
+<h1>門號解約金計算機</h1>
+<div class="main-agileits">
+	<div class="sign-in-wthree">
+		<div class="sign-in-top-agileinfo">			
+			<p>讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少, 可藉由此計算機來幫助計算</p>
+			<td width="100%" align="right">
+              <div id="fb-root"></div>              				  
+                <div align="right">                  
+                      <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-url="https://deternan.github.io/Phone_damages/mobile_web" style="display: none;"></div>
+					  <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+                </div>
+              </td>
+	  </div>
+	<div class="sign-in-bottom-agileinfo">
+			<form action="#" method="post">
+				<table width="100%" border="1">
+                  <tr>
+                    <td><h3>門號起始日期</h3></td>
+                    <td><input type="date" id="datepicker_1"></td>
+                  </tr>                  
+                  <tr>
+                    <td><h3>欲解約日期</h3></td>
+                    <td><input type="date" id="datepicker_3"></td>
+                  </tr>                               
+                  <tr>
+                    <td><h3>電信公司</h3></td>
+                    <td id="Select_Company" width="auto">                    
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3>原合約長度</h3></td>
+                    <td id="Contract_month" width="auto">              
+                    </td>
+                  </tr> 
+                  <tr>
+                    <td><h3>原合約名稱</h3></td>
+                    <td id="Contract_name" width="auto">              
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3>專案補貼款(手機/平板)</h3></td>
+                    <td width="auto"><input id="Subsidy"></td>
+                  </tr> 
+                  <tr>
+                    <td><h3>月租費</h3></td>
+                    <td id="Contract_rate" width="auto">              
+                    </td>
+                  </tr>                  
+                  <tr>
+                    <td><h3><label id='damages_tag'>違約金總計為</label></h3></td>
+                    <td width="auto"><label class="style2" id='damages_val'>$</label>&nbsp;<label id='damages_unit'>元</label>
+                    </td>
+                  </tr> 
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                </table>
+				<h3></h3>
+			</form>
+		</div>
+		<div class="sign-in-top-agileinfo">			
+			<p> <h4>聯繫作者：<a href="https://www.linkedin.com/in/chao-hsuan-ke-543a2698/" target="_blank">Chao-Hsuan Ke</a></h4></p>
+		</div>
+	</div>
+<div class="footer-agileits-w3layouts">
+	<p class="agileinfo">&nbsp;</p>
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3248373717625964",
+          enable_page_level_ads: true
+     });
+</script>
+</body>
+</html>
