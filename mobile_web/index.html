@@ -1,49 +1,75 @@
-<!--
+﻿<!--
 Author: Chao-Hsuan Ke
 Mail: phelpske.dev at gmail dot com
-Last updated: January 18, 2020 10:00 AM
+linkedin: https://www.linkedin.com/in/chao-hsuan-ke-543a2698
+Last updated: February 04, 2020 11:32 PM
 -->
+
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Phone penalty calculator</title>
-	<link href="css/style.css" rel='stylesheet' type='text/css'/>
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<title>Phone penalty calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />		
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-	<script src="js/skycons.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="js/skycons.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    
-	<script>
+	<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+<style>
+<!--
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+-->
+</style>
+
+<!-- Header -->
+  <header class="w3-container w3-center w3-padding-24 w3-white">
+    <h1 class="w3-xxlarge"><b>門號解約金計算機</b></h1>
+	<h6>Phone penalty calculator</h6>
 	
-	// device check (PC or mobile)  
-  	var userAgentInfo = navigator.userAgent;
-	if(userAgentInfo.indexOf("Windows NT") >0){
+	<script>
+
+	// device check (Desktop or mobile)  
+		var userAgentInfo = navigator.userAgent;
+		if(userAgentInfo.indexOf("Windows NT") >0){
 		window.location.replace("https://www.phelps.top");
 	}
 	
-	// mac detection
-	
 	
 	// Google AdSense
-	(adsbygoogle = window.adsbygoogle || []).push({
-    	google_ad_client: "ca-pub-3248373717625964",
-    	enable_page_level_ads: true
-  	});
-	
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-3248373717625964",
+			enable_page_level_ads: true
+		});
+		
+
 	// Google Analytics
-  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  	ga('create', 'UA-90045865-1', 'auto');
-  	ga('send', 'pageview');
-	
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-90045865-1', 'auto');
+		ga('send', 'pageview');
+
+	// Facebook
+		(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+  
 	
 	$(document).ready(function() {
 	
@@ -135,7 +161,7 @@ Last updated: January 18, 2020 10:00 AM
 		mandarin_cht[i++] = new contract("36個月", 36, ["請選擇合約方案", "4G智慧大玩家新方案 (6954)(36)","逗陣續約費率 (月繳88)"])
 		// contract_value
 		var j=0;		
-		cht_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);								// A_value 				// B_value		// C_value = Subsidy
+		cht_contract[j++] = new fee("請選擇合約方案", 0, ["請選擇費率"],[],[]);
 		cht_contract[j++] = new fee("4G 699 精選(8083)", 1, ["請選擇費率",699],[0,7200],[0,100]);
 		cht_contract[j++] = new fee("4G 金好講 (8331)(24)", 2, ["請選擇費率",398],[0,6500],[0,1]);	
 		cht_contract[j++] = new fee("4G 金好講 (8331)(30)", 3, ["請選擇費率",398],[0,7000],[0,1]);	
@@ -262,7 +288,8 @@ Last updated: January 18, 2020 10:00 AM
 	var comapy_num = dataHierarchy();
 		
 	var company_index;
-	var contract_length_index;		var contract_totalday;
+	var contract_length_index;		
+	var contract_totalday;
 	var contract_name;
 	var contract_rate;
 	var contract_rate_index;
@@ -271,10 +298,9 @@ Last updated: January 18, 2020 10:00 AM
 	// HTML
 	// Add (Company)
 	var selectList_comapy;
-	selectList_comapy = "<select class='Select_Company'>";
-	for (var i = 0; i < comapy_num.length; i++) 
+	selectList_comapy = "<select class='Select_Company' align='left'>";
+	for (var i=0; i<comapy_num.length; i++) 
 	{
-    	//<option name="12M" value="365">12 個月</option>
 		selectList_comapy += "<option name='"+comapy_num[i].name +"' value='"+comapy_num[i].value+"'>"+comapy_num[i].name+"</option>"+"\n";
 	}	
 	selectList_comapy += "</select>";
@@ -352,7 +378,7 @@ Last updated: January 18, 2020 10:00 AM
 	// Null	
 	function Null_contract_name(){
 		var contract_null;				
-		contarct_null = "<select class='Contract_name'>";		
+		contarct_null = "<select class='Contract_name' width='90%' style='width: 90%' align='left'>";		
 		contarct_null += "<option name='"+cht_contract[0].name+"' value='"+cht_contract[0].index+"'>"+cht_contract[0].name+"</option>"+"\n";	
 		contarct_null += "</select>";
 		$('#Contract_name').html(contarct_null);
@@ -368,7 +394,7 @@ Last updated: January 18, 2020 10:00 AM
 				temp_array = mandarin_cht[i].name;
 			}
 		}				
-		contarct_cht = "<select class='Contract_name'>";
+		contarct_cht = "<select class='Contract_name' width='90%' style='width: 90%' align='left'>";
 		for (var i=0; i<temp_array.length; i++) 
 		{    	
 			contarct_cht += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
@@ -387,7 +413,7 @@ Last updated: January 18, 2020 10:00 AM
 				temp_array = mandarin_twm[i].name;
 			}
 		}				
-		contarct_twm = "<select class='Contract_name'>";
+		contarct_twm = "<select class='Contract_name' width='90%' style='width: 90%' align='left'>";
 		for (var i=0; i<temp_array.length; i++) 
 		{    	
 			contarct_twm += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
@@ -406,7 +432,7 @@ Last updated: January 18, 2020 10:00 AM
 				temp_array = mandarin_fet[i].name;
 			}
 		}				
-		contarct_fet = "<select class='Contract_name'>";
+		contarct_fet = "<select class='Contract_name' width='90%' style='width: 90%' align='left'>";
 		for (var i=0; i<temp_array.length; i++) 
 		{    	
 			contarct_fet += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
@@ -425,7 +451,7 @@ Last updated: January 18, 2020 10:00 AM
 				temp_array = mandarin_gt[i].name;
 			}
 		}				
-		contarct_gt = "<select class='Contract_name'>";
+		contarct_gt = "<select class='Contract_name' width='90%' style='width: 90%' align='left'>";
 		for (var i=0; i<temp_array.length; i++) 
 		{    	
 			contarct_gt += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
@@ -444,7 +470,7 @@ Last updated: January 18, 2020 10:00 AM
 				temp_array = mandarin_tstar[i].name;
 			}
 		}				
-		contarct_tstar = "<select class='Contract_name'>";
+		contarct_tstar = "<select class='Contract_name' width='90%' style='width: 90%' align='left'>";
 		for (var i=0; i<temp_array.length; i++) 
 		{    	
 			contarct_tstar += "<option name='"+temp_array[i]+"' value='"+temp_array[i].index+"'>"+temp_array[i]+"</option>"+"\n";
@@ -886,90 +912,155 @@ Last updated: January 18, 2020 10:00 AM
 	
 });
 	
-    </script>
-    <style type="text/css">	
-	.style2 {
-		color: #FF0000;
-		font-size: xx-large;
-	}
-	</style>
+</script>
+	
+<!-- Facebook Tag -->
+<meta property="og:url"   content="https://phelps.top/mobile_web/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="門號解約金計算機" />
+<meta property="og:description" content="讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少,藉由此計算機來幫助計算" />
+<meta property="og:image" content="https://phelps.top/images/calculator.png" />
+	
+  </header>
+
+<body class="w3-light-grey">
+
+<!-- Navigation bar with social media icons -->
+<!--
+<div class="w3-bar w3-black w3-hide-small">
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-instagram"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-snapchat"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-flickr"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-twitter"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
+</div>
+-->
+  
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1600px">
+
+  <!-- Image header -->
+  <header class="w3-display-container w3-wide" id="home">
+  </header>
+
+  <!-- Grid -->
+  <div class="w3-row w3-padding w3-border">
+
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
     
-</head>
-<body>
-<h1>門號解約金計算機</h1>
-<div class="main-agileits">
-	<div class="sign-in-wthree">
-		<div class="sign-in-top-agileinfo">			
-			<p>讓大家了解自己的手機門號在合約尚未到期時若想進行解約時所需要繳交的解約金是多少, 可藉由此計算機來幫助計算</p>
-			<td width="100%" align="right">
-              <div id="fb-root"></div>              				  
-                <div align="right">                  
-                      <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-url="https://deternan.github.io/Phone_damages/mobile_web" style="display: none;"></div>
-					  <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-                </div>
-              </td>
-	  </div>
-	<div class="sign-in-bottom-agileinfo">
-			<form action="#" method="post">
-				<table width="100%" border="1">
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-justify">
+		  <table width="100%" border="0">
                   <tr>
-                    <td><h3>門號起始日期</h3></td>
-                    <td><input type="date" id="datepicker_1"></td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">門號起始日</div></h4></td>
+                    <td align="left"><input type="date" id="datepicker_1">
+                    </td>
                   </tr>                  
                   <tr>
-                    <td><h3>欲解約日期</h3></td>
-                    <td><input type="date" id="datepicker_3"></td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">欲解約日期</div></h4></td>
+                    <td align="left"><input type="date" id="datepicker_3"></td>
                   </tr>                               
                   <tr>
-                    <td><h3>電信公司</h3></td>
-                    <td id="Select_Company" width="auto">                    
-                    </td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">電信公司</div></h4></td>
+                    <td id="Select_Company" align="left" width="100%"></td>
                   </tr>
                   <tr>
-                    <td><h3>原合約長度</h3></td>
-                    <td id="Contract_month" width="auto">              
-                    </td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">原合約長度</div></h4></td>
+                    <td id='Contract_month' align="left" width="100%"> </td>
                   </tr> 
                   <tr>
-                    <td><h3>原合約名稱</h3></td>
-                    <td id="Contract_name" width="auto">              
-                    </td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">原合約名稱</div></h4></td>
+                    <td id="Contract_name" align="left" width="100%"> </td>
                   </tr>
                   <tr>
-                    <td><h3>專案補貼款(手機/平板)</h3></td>
-                    <td width="auto"><input id="Subsidy"></td>
+                    <td width="70%"><h4><div style="font-family:Microsoft JhengHei;">專案補貼款</div></h4></td>
+                    <td align="left"><input id="Subsidy" type="text" maxlength="10" size="10"></td>
                   </tr> 
                   <tr>
-                    <td><h3>月租費</h3></td>
-                    <td id="Contract_rate" width="auto">              
-                    </td>
+                    <td  width="70%"><h4><div style="font-family:Microsoft JhengHei;">月租費</div></h4></td>
+                    <td id="Contract_rate" align="left" width="100%"></td>
                   </tr>                  
                   <tr>
-                    <td><h3><label id='damages_tag'>違約金總計為</label></h3></td>
-                    <td width="auto"><label class="style2" id='damages_val'>$</label>&nbsp;<label id='damages_unit'>元</label>
+                    <td width="70%"><h4><label id='damages_tag'>違約金總計為</label></h4></td>
+                    <td style="width:80%" align="left"><label class="style2" id='damages_val'>$</label>&nbsp;<label id='damages_unit'>元</label>
                     </td>
                   </tr> 
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                  </tr>
                 </table>
-				<h3></h3>
-			</form>
-		</div>
-		<div class="sign-in-top-agileinfo">			
-			<p> <h4>聯繫作者：<a href="https://www.linkedin.com/in/chao-hsuan-ke-543a2698/" target="_blank">Chao-Hsuan Ke</a></h4></p>
-		</div>
-	</div>
-<div class="footer-agileits-w3layouts">
-	<p class="agileinfo">&nbsp;</p>
+		  </p>
+          <p class="w3-clear"></p>
+        </div>
+      </div>
+      <hr>
+   
+
+      <!-- Advertising -->
+	  <!--
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding-small w3-black" style="height: 50px">
+          <h5>Advertise</h5>
+        </div>
+        <div class="w3-container w3-white">
+          <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:150px">
+            <span class="w3-display-middle">Your AD Here
+			<script>
+			// Google AdSense
+			(adsbygoogle = window.adsbygoogle || []).push({
+				google_ad_client: "ca-pub-3248373717625964",
+				enable_page_level_ads: true
+			});
+			</script>
+			</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+		-->
+	  <!-- Follow Me -->
+	  <!--
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Follow Me</h4>
+        </div>
+        <div class="w3-container w3-xlarge w3-padding">
+          <i class="fa fa-facebook-official w3-hover-opacity"></i>
+          <i class="fa fa-instagram w3-hover-opacity"></i>
+          <i class="fa fa-snapchat w3-hover-opacity"></i>
+          <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+          <i class="fa fa-twitter w3-hover-opacity"></i>
+          <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+      </div>
+      <hr>
+	  -->
+
+    <!-- END About/Intro Menu -->
+    </div>
+
+  <!-- END GRID -->
+  </div>
+
+<!-- END w3-content -->
 </div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-3248373717625964",
-          enable_page_level_ads: true
-     });
-</script>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey" style="padding:10px">
+   <!-- Line -->
+   <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-url="https://phelps.top/mobile_web/" data-color="default" data-size="small" data-count="false" style="display: none;"></div> &nbsp; &nbsp; 
+   <!-- Facebook -->
+	<div id="fb-root"></div>
+  <div class="fb-share-button" 
+    data-href="https://phelps.top/mobile_web/" 
+    data-layout="button">
+  </div>
+  <p> <h6><div style="font-family:Microsoft JhengHei;">聯繫作者：<a href="https://www.linkedin.com/in/chao-hsuan-ke-543a2698/" target="_blank">Chao-Hsuan Ke</a></div></h6></p>
+  <h6><div style="font-family:Microsoft JhengHei;"><a href="https://medium.com/phelps-ke/phone-penalty-calculator-52b4c21a94bb" target="_blank">Medium</a></div></h6>
+</footer>
+
 </body>
 </html>
